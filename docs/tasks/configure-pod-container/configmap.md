@@ -217,8 +217,6 @@ metadata:
 
 {% capture discussion %}
 
-## Understanding ConfigMaps
-
 ## 理解Config Map
 
 ConfigMap允许您将配置文件从容器镜像中解耦，从而增强容器应用的可移植性。
