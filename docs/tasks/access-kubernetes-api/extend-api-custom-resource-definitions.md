@@ -1,4 +1,5 @@
----title: Extend the Kubernetes API with CustomResourceDefinitions
+---
+title: Extend the Kubernetes API with CustomResourceDefinitions
 assignees:
 - deads2k
 - enisoc

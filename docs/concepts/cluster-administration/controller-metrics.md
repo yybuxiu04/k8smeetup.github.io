@@ -1,4 +1,5 @@
----title: Controller manager metrics
+---
+title: Controller manager metrics
 ---
 
 {% capture overview %}

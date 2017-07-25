@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - crassirostris
 - piosz
 title: Events in Stackdriver

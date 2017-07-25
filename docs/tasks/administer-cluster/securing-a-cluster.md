@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - smarterclayton
 title: Securing a Cluster
 ---

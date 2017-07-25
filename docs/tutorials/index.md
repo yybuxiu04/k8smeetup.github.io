@@ -1,4 +1,5 @@
----title: Tutorials
+---
+title: Tutorials
 redirect_from:
 - "/docs/samples/"
 - "/docs/samples.html"

@@ -1,4 +1,5 @@
----title: Federated Cluster
+---
+title: Federated Cluster
 redirect_from:
 - "/docs/user-guide/federation/cluster/"
 - "/docs/user-guide/federation/cluster.html"

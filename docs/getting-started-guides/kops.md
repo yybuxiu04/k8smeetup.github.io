@@ -1,4 +1,5 @@
----title: Installing Kubernetes on AWS with kops
+---
+title: Installing Kubernetes on AWS with kops
 ---
 
 ## Overview

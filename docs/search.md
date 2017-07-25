@@ -1,4 +1,5 @@
----layout: docwithnav
+---
+layout: docwithnav
 title: Search Results
 ---
 <script>

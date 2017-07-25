@@ -1,4 +1,5 @@
----title: "Example: WordPress and MySQL with Persistent Volumes"
+---
+title: "Example: WordPress and MySQL with Persistent Volumes"
 assignees:
 - ahmetb
 - jeffmendoza

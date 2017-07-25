@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - mikedanese
 title: Configuring kubelet Garbage Collection
 redirect_from:

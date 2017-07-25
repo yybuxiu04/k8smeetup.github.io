@@ -1,4 +1,5 @@
----title: Federated Ingress
+---
+title: Federated Ingress
 redirect_from:
 - "/docs/user-guide/federation/federated-ingress/"
 - "/docs/user-guide/federation/federated-ingress.html"

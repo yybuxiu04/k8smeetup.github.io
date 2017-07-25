@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - jsafrane
 title: Static Pods
 redirect_from:

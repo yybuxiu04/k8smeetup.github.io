@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - mikedanese
 - thockin
 title: Share Cluster Access with kubeconfig

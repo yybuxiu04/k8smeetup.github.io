@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - jszczepkowski
 title: Set up High-Availability Kubernetes Masters
 redirect_from:

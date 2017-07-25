@@ -1,4 +1,5 @@
----title: kubectl
+---
+title: kubectl
 ---
 
 kubectl controls the Kubernetes cluster manager.

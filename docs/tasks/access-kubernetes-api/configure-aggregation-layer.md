@@ -1,4 +1,5 @@
----title: Configure the aggregation layer
+---
+title: Configure the aggregation layer
 assignees:
 - lavalamp
 - cheftako

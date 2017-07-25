@@ -1,4 +1,5 @@
----title: Extending the Kubernetes API with the aggregation layer
+---
+title: Extending the Kubernetes API with the aggregation layer
 assignees:
 - lavalamp
 - cheftako

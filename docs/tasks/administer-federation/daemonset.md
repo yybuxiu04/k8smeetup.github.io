@@ -1,4 +1,5 @@
----title: Federated DaemonSet
+---
+title: Federated DaemonSet
 redirect_from:
 - "/docs/user-guide/federation/daemonsets/"
 - "/docs/user-guide/federation/daemonsets.html"

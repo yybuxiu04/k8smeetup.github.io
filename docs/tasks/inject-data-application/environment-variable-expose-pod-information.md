@@ -1,4 +1,5 @@
----title: Expose Pod Information to Containers Through Environment Variables
+---
+title: Expose Pod Information to Containers Through Environment Variables
 redirect_from:
 - "/docs/user-guide/environment-guide/"
 - "/docs/user-guide/environment-guide/index.html"

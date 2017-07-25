@@ -1,4 +1,5 @@
----title: "Example: PHP Guestbook application with Redis"
+---
+title: "Example: PHP Guestbook application with Redis"
 assignees:
 - ahmetb
 - jeffmendoza

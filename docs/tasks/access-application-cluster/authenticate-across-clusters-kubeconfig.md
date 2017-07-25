@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - mikedanese
 - thockin
 title: Authenticate Across Clusters with kubeconfig

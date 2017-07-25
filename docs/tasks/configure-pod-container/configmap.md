@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - eparis
 - pmorie
 title: 使用ConfigMap配置容器
@@ -76,7 +77,6 @@ ui.properties:          83 bytes
 kubectl get configmaps game-config-2 -o yaml
 ```
 
-
 ```yaml
 apiVersion: v1
 data:
@@ -108,7 +108,7 @@ metadata:
 使用`kubectl create configmap`命令从单个文件或一组文件中创建ConfigMap，例如：
 
 ```shell
-kubectl create configmap game-config-2 --from-file=docs/user-guide/configmap/kubectl/game.properties 
+kubectl create configmap game-config-2 --from-file=docs/user-guide/configmap/kubectl/game.properties
 ```
 
 将产生如下的ConfigMap：
@@ -128,7 +128,7 @@ game.properties:        158 bytes
 您可以多次传递`--from-file`参数使用不同的数据源来创建ConfigMap。
 
 ```shell
-kubectl create configmap game-config-2 --from-file=docs/user-guide/configmap/kubectl/game.properties --from-file=docs/user-guide/configmap/kubectl/ui.properties 
+kubectl create configmap game-config-2 --from-file=docs/user-guide/configmap/kubectl/game.properties --from-file=docs/user-guide/configmap/kubectl/ui.properties
 ```
 
 ```shell
@@ -183,6 +183,7 @@ metadata:
   uid: 05f8da22-d671-11e5-8cd0-68f728db1985
 ```
 
+
 ### 利用字面值创建ConfigMap
 
 使用`kubectl create configmap`时使用`--from-literal`参数在命令中定义字面值：
@@ -216,6 +217,8 @@ metadata:
 
 {% capture discussion %}
 
+## Understanding ConfigMaps
+
 ## 理解Config Map
 
 ConfigMap允许您将配置文件从容器镜像中解耦，从而增强容器应用的可移植性。
@@ -223,7 +226,6 @@ ConfigMap允许您将配置文件从容器镜像中解耦，从而增强容器�
 ConfigMap API resource将配置数据以键值对的形式存储。这些数据可以在pod中消费或者为系统组件提供配置，例如controller。ConfigMap与[Secret](/docs/concepts/configuration/secret/)类似，但是通常只保存不包含敏感信息的字符串。用户和系统组件可以以同样的方式在ConfigMap中存储配置数据。
 
 注意：ConfigMap只引用属性文件，而不会替换它们。可以把ConfigMap联想成Linux中的`/etc`目录和它里面的内容。例如，假如您使用ConfigMap创建了[Kubernetes Volume](/docs/concepts/storage/volumes/)，ConfigMap中的每个数据项都代表该volume中的一个文件。
-
 
 ConfigMap的`data`项中包含了配置数据。如下所示，可以是很简单的——如使用 `—from-literal` 参数定义的每个属性；也可以很复杂——如使用`—from-file`参数定义的配置文件或者json对象。
 
@@ -248,6 +250,8 @@ data:
 {% endcapture %}
 
 {% capture whatsnext %}
+
+{% endcapture %}
 * 参考 [在Pod中使用ConfigMap数据](/docs/tasks/configure-pod-container/configure-pod-configmap).
 * 参考实际案例[使用ConfigMap配置Redis](/docs/tutorials/configuration/configure-redis-using-configmap/).
 {% endcapture %}

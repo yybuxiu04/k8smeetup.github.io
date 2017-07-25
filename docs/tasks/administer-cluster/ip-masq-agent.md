@@ -1,4 +1,5 @@
----title: IP Masquerade Agent User Guide
+---
+title: IP Masquerade Agent User Guide
 ---
 
 {% capture overview %}

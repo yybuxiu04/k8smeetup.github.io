@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - janetkuo
 title: Perform Rolling Update Using a Replication Controller
 redirect_from:

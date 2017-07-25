@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - davidopp
 title: Troubleshoot Clusters
 redirect_from:

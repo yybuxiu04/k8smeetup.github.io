@@ -1,4 +1,5 @@
----title: Example Concept Template
+---
+title: Example Concept Template
 assignees:
 - chenopis
 ---

@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - mikedanese
 title: Secrets
 redirect_from:

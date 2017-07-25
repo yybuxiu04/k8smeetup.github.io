@@ -1,4 +1,5 @@
----title: Parallel Processing using Expansions
+---
+title: Parallel Processing using Expansions
 redirect_from:
 - "/docs/user-guide/jobs/expansions/index/"
 - "/docs/user-guide/jobs/expansions/index.html"

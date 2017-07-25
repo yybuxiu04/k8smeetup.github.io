@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - mml
 title: Cluster Management Guide for Version 1.6
 redirect_from:

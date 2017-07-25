@@ -1,4 +1,5 @@
----title: Installing Addons
+---
+title: Installing Addons
 redirect_from:
 - "/docs/admin/addons/"
 - "/docs/admin/addons.html"

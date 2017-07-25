@@ -1,4 +1,5 @@
----title: Managing Compute Resources for Containers
+---
+title: Managing Compute Resources for Containers
 redirect_from:
 - "/docs/user-guide/compute-resources/"
 - "/docs/user-guide/compute-resources.html"

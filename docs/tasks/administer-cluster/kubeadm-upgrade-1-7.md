@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - pipejakob
 title: Upgrading kubeadm clusters from 1.6 to 1.7
 redirect_from:

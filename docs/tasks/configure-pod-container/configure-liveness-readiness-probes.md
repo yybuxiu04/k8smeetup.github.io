@@ -1,4 +1,5 @@
----redirect_from:
+---
+redirect_from:
 - "/docs/user-guide/liveness/"
 - "/docs/user-guide.liveness.html"
 title: 配置Liveness和Readiness探针

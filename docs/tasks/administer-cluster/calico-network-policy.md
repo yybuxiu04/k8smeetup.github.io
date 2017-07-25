@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - caseydavenport
 title: Use Calico for NetworkPolicy
 redirect_from:

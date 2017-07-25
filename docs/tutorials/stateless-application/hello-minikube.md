@@ -1,4 +1,5 @@
 ---
+
 title: Hello Minikube
 redirect_from:
 - "/docs/hellonode/"

@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - thockin
 title: CentOS
 ---

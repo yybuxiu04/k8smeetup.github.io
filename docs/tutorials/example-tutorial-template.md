@@ -1,4 +1,5 @@
----title: Example Tutorial Template
+---
+title: Example Tutorial Template
 assignees:
 - chenopis
 ---

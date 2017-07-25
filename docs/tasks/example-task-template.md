@@ -1,4 +1,5 @@
----title: Example Task Template
+---
+title: Example Task Template
 assignees:
 - chenopis
 ---

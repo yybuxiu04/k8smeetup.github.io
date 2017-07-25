@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - bgrant0607
 - mikedanese
 title: Install and Set Up kubectl

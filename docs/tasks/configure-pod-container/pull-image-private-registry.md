@@ -1,4 +1,5 @@
----title: Pull an Image from a Private Registry
+---
+title: Pull an Image from a Private Registry
 ---
 
 {% capture overview %}

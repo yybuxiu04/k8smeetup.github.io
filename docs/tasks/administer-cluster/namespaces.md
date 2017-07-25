@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - derekwaynecarr
 - janetkuo
 title: Share a Cluster with Namespaces

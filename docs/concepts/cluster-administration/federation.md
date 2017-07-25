@@ -1,4 +1,5 @@
----title: Federation
+---
+title: Federation
 redirect_from:
 - "/docs/user-guide/federation/"
 - "/docs/user-guide/federation/index.html"

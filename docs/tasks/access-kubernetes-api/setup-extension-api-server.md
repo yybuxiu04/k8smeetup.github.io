@@ -1,4 +1,5 @@
----title: Setup an extension API server
+---
+title: Setup an extension API server
 assignees:
 - lavalamp
 - cheftako

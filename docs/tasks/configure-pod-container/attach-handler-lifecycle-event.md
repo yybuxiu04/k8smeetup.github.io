@@ -1,4 +1,5 @@
----title: Attach Handlers to Container Lifecycle Events
+---
+title: Attach Handlers to Container Lifecycle Events
 ---
 
 {% capture overview %}

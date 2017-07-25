@@ -1,4 +1,5 @@
----title: Federated Secrets
+---
+title: Federated Secrets
 redirect_from:
 - "/docs/user-guide/federation/secrets/"
 - "/docs/user-guide/federation/secrets.html"

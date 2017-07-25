@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - erictune
 - jbeda
 title: VMware vSphere

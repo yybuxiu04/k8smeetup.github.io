@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - vishh
 title: Schedule GPUs
 redirect_from:

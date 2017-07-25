@@ -1,4 +1,5 @@
----title: "Example: Deploying Cassandra with Stateful Sets"
+---
+title: "Example: Deploying Cassandra with Stateful Sets"
 ---
 
 ## Table of Contents

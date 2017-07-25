@@ -1,4 +1,5 @@
----title: Proxies in Kubernetes
+---
+title: Proxies in Kubernetes
 redirect_from:
 - "/docs/user-guide/accessing-the-cluster/"
 - "/docs/user-guide/accessing-the-cluster.html"

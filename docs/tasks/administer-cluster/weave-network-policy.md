@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - bboreham
 title: Weave Net for NetworkPolicy
 redirect_from:

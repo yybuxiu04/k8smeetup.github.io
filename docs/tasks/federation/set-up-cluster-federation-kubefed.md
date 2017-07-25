@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - madhusudancs
 title: Set up Cluster Federation with Kubefed
 redirect_from:

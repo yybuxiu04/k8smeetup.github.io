@@ -1,4 +1,5 @@
----title: Federated ConfigMap
+---
+title: Federated ConfigMap
 redirect_from:
 - "/docs/user-guide/federation/configmap/"
 - "/docs/user-guide/federation/configmap.html"

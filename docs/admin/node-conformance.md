@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - Random-Liu
 title: Validate Node Setup
 ---

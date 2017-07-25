@@ -1,4 +1,5 @@
----title: Kubernetes on Ubuntu
+---
+title: Kubernetes on Ubuntu
 redirect_from:
 - "/docs/getting-started-guides/ubuntu/calico/"
 - "/docs/getting-started-guides/ubuntu/calico.html"

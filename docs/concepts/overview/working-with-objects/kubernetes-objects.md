@@ -1,4 +1,5 @@
----title: Understanding Kubernetes Objects
+---
+title: Understanding Kubernetes Objects
 
 redirect_from:
 - "/docs/concepts/abstractions/overview/"

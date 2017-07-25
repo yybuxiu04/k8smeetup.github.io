@@ -1,4 +1,5 @@
----title: Distribute Credentials Securely Using Secrets
+---
+title: Distribute Credentials Securely Using Secrets
 redirect_from:
 - "/docs/user-guide/secrets/walkthrough/"
 - "/docs/user-guide/secrets/walkthrough.html"

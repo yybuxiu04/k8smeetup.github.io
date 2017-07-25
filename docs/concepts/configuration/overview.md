@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - mikedanese
 title: Configuration Best Practices
 redirect_from:

@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - bprashanth
 - janetkuo
 title: Replication Controller

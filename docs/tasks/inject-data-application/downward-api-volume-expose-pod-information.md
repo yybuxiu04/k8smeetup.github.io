@@ -1,4 +1,5 @@
----title: Expose Pod Information to Containers Through Files
+---
+title: Expose Pod Information to Containers Through Files
 redirect_from:
 - "/docs/user-guide/downward-api/"
 - "/docs/user-guide/downward-api/index.html"

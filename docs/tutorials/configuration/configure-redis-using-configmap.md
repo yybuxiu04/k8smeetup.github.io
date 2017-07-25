@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - eparis
 - pmorie
 title: Configuring Redis using a ConfigMap

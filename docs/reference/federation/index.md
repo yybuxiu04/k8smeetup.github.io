@@ -1,4 +1,5 @@
----title: Federation API Reference
+---
+title: Federation API Reference
 redirect_from:
 - "/docs/federation/api-reference/"
 - "/docs/federation/api-reference/index.md"

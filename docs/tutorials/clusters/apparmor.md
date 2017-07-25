@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - stclair
 title: AppArmor
 redirect_from:

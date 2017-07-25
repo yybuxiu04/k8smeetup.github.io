@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - thockin
 title: Manually Deploying Kubernetes on Ubuntu Nodes
 ---

@@ -1,4 +1,5 @@
----title: kube-scheduler
+---
+title: kube-scheduler
 notitle: true
 ---
 

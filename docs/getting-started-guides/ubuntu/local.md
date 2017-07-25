@@ -1,4 +1,5 @@
----title: Local Kubernetes development with LXD
+---
+title: Local Kubernetes development with LXD
 ---
 
 {% capture overview %}

@@ -1,4 +1,5 @@
----assignees:
+---
+assignees:
 - caesarxuchao
 - erictune
 title: Setting up Kubernetes with Juju

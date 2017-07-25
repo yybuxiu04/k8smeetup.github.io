@@ -1,4 +1,5 @@
----title: kube-controller-manager
+---
+title: kube-controller-manager
 notitle: true
 ---
 ## kube-controller-manager

@@ -1,4 +1,5 @@
----title: Install Minikube
+---
+title: Install Minikube
 ---
 
 {% capture overview %}

@@ -1,4 +1,5 @@
----title: Federated Namespaces
+---
+title: Federated Namespaces
 redirect_from:
 - "/docs/user-guide/federation/namespaces/"
 - "/docs/user-guide/federation/namespaces.html"

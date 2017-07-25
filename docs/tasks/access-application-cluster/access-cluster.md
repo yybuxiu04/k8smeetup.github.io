@@ -1,4 +1,5 @@
----title: Accessing Clusters
+---
+title: Accessing Clusters
 redirect_from:
 - "/docs/user-guide/accessing-the-cluster/"
 - "/docs/user-guide/accessing-the-cluster.html"

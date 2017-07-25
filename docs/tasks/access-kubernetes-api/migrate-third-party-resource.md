@@ -1,4 +1,5 @@
----title: Migrate a ThirdPartyResource to CustomResourceDefinition
+---
+title: Migrate a ThirdPartyResource to CustomResourceDefinition
 assignees:
 - enisoc
 - deads2k
