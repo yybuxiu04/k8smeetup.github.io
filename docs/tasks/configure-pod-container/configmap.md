@@ -31,7 +31,7 @@ redirect_from:
 ```shell
 kubectl create configmap <map-name> <data-source>
 ```
-<map-name>代表ConfigMap的名字，<data-source>代表目录、文件或者字面值。
+\<map-name>代表ConfigMap的名字，\<data-source>代表目录、文件或者字面值。
 
 数据源对应于ConfigMap中的键值对，
 
@@ -217,6 +217,7 @@ metadata:
 
 {% capture discussion %}
 
+
 ## 理解Config Map
 
 ConfigMap允许您将配置文件从容器镜像中解耦，从而增强容器应用的可移植性。
@@ -251,7 +252,6 @@ data:
 
 * 参考 [在Pod中使用ConfigMap数据](/docs/tasks/configure-pod-container/configure-pod-configmap).
 * 参考实际案例[使用ConfigMap配置Redis](/docs/tutorials/configuration/configure-redis-using-configmap/).
-
 {% endcapture %}
 
 {% include templates/task.md %}
