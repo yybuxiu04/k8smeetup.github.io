@@ -11,6 +11,7 @@ redirect_from:
 
 {% capture overview %}
 
+
 本文将向您展示如何使用ConfigMap来配置应用。ConfigMap允许您将配置文件从容器镜像中解耦，从而增强容器应用的可移植性。
 
 {% endcapture %}
@@ -48,6 +49,7 @@ kubectl create configmap <map-name> <data-source>
 kubectl create configmap game-config --from-file=docs/user-guide/configmap/kubectl
 ```
 
+
 将`docs/user-guide/configmap/kubectl`目录的内容
 
 ```shell
@@ -70,6 +72,7 @@ Data
 game.properties:        158 bytes
 ui.properties:          83 bytes
 ```
+
 
 `docs/user-guide/configmap/kubectl/`目录下的`game.properties`和`ui.properties`文件代表ConfigMap中的`data`部分。
 
@@ -108,7 +111,7 @@ metadata:
 使用`kubectl create configmap`命令从单个文件或一组文件中创建ConfigMap，例如：
 
 ```shell
-kubectl create configmap game-config-2 --from-file=docs/user-guide/configmap/kubectl/game.properties
+kubectl create configmap game-config-2 --from-file=docs/user-guide/configmap/kubectl/game.properties 
 ```
 
 将产生如下的ConfigMap：
@@ -128,7 +131,7 @@ game.properties:        158 bytes
 您可以多次传递`--from-file`参数使用不同的数据源来创建ConfigMap。
 
 ```shell
-kubectl create configmap game-config-2 --from-file=docs/user-guide/configmap/kubectl/game.properties --from-file=docs/user-guide/configmap/kubectl/ui.properties
+kubectl create configmap game-config-2 --from-file=docs/user-guide/configmap/kubectl/game.properties --from-file=docs/user-guide/configmap/kubectl/ui.properties 
 ```
 
 ```shell
@@ -146,15 +149,13 @@ ui.properties:          83 bytes
 
 #### 利用文件创建ConfigMap是定义key
 
-当您使用`—from-file`参数时，可以在ConfigMap的`data`小节内定义key替代默认的文件名：
+当您使用`--from-file`参数时，可以在ConfigMap的`data`小节内定义key替代默认的文件名：
 
 ```shell
 kubectl create configmap game-config-3 --from-file=<my-key-name>=<path-to-file>
 ```
 
 `<my-key-name>`是ConfigMap中的key，`<path-to-file>`是key代表的数据源文件位置。
-
-例如：
 
 ```shell
 kubectl create configmap game-config-3 --from-file=game-special-key=docs/user-guide/configmap/kubectl/game.properties
@@ -182,7 +183,6 @@ metadata:
   selfLink: /api/v1/namespaces/default/configmaps/game-config-3
   uid: 05f8da22-d671-11e5-8cd0-68f728db1985
 ```
-
 
 ### 利用字面值创建ConfigMap
 
@@ -216,7 +216,6 @@ metadata:
 {% endcapture %}
 
 {% capture discussion %}
-
 
 ## 理解Config Map
 
@@ -252,6 +251,6 @@ data:
 
 * 参考 [在Pod中使用ConfigMap数据](/docs/tasks/configure-pod-container/configure-pod-configmap).
 * 参考实际案例[使用ConfigMap配置Redis](/docs/tutorials/configuration/configure-redis-using-configmap/).
-{% endcapture %}
+  {% endcapture %}
 
 {% include templates/task.md %}

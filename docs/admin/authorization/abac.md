@@ -21,34 +21,36 @@ title: ABAC 模式
 
 此文件是 JSON 格式[每行都是一个JSON对象](http://jsonlines.org/)，不应存在封闭的列表或映射，每行只有一个映射。
 
+
 每一行都是一个 "策略对象",策略对象是具有以下映射的属性:
 
-  - 版本控制属性:
-    - `apiVersion`，字符串类型: 有效值为"abac.authorization.kubernetes.io/v1beta1"，允许版本控制和转换策略格式。
-    - `kind`，字符串类型: 有效值为 "Policy"，允许版本控制和转换策略格式。
-  - `spec` 配置为具有以下映射的属性:
-    - 匹配属性:
-      - `user`，字符串类型; 来自 `--token-auth-file` 的用户字符串，如果你指定`user`，它必须与验证用户的用户名匹配。
-      - `group`，字符串类型; 如果指定`group`，它必须与经过身份验证的用户的一个组匹配，`system:authenticated`匹配所有经过身份验证的请求。`system:unauthenticated`匹配所有未经过身份验证的请求。
-  - 资源匹配属性:
-    - `apiGroup`，字符串类型; 一个 API 组。
-      - 例: `extensions`
-      - 通配符: `*`匹配所有 API 组。
-    - `namespace`，字符串类型; 一个命名空间。
-      - 例如: `kube-system`
-      - 通配符: `*` 匹配所有资源请求。
-    - `resource`，字符串类型; 资源类型。
-      - 例:`pods`
-      - 通配符: `*`匹配所有资源请求。
-  - 非资源匹配属性:
-    - `nonResourcePath`，字符串类型; 非资源请求路径。
-      - 例如:`/version`或`/apis`
-      - 通配符:
-        - `*` 匹配所有非资源请求。
-        - `/foo/*` 匹配`/foo/`的所有子路径。
-  - `readonly`，键入 boolean，如果为 true，则表示该策略仅适用于 get，list 和 watch 操作。
+    - 版本控制属性:
+      - `apiVersion`，字符串类型: 有效值为"abac.authorization.kubernetes.io/v1beta1"，允许版本控制和转换策略格式。
+      - `kind`，字符串类型: 有效值为 "Policy"，允许版本控制和转换策略格式。
+    - `spec` 配置为具有以下映射的属性:
+      - 匹配属性:
+        - `user`，字符串类型; 来自 `--token-auth-file` 的用户字符串，如果你指定`user`，它必须与验证用户的用户名匹配。
+        - `group`，字符串类型; 如果指定`group`，它必须与经过身份验证的用户的一个组匹配，`system:authenticated`匹配所有经过身份验证的请求。`system:unauthenticated`匹配所有未经过身份验证的请求。
+    - 资源匹配属性:
+      - `apiGroup`，字符串类型; 一个 API 组。
+        - 例: `extensions`
+        - 通配符: `*`匹配所有 API 组。
+      - `namespace`，字符串类型; 一个命名空间。
+        - 例如: `kube-system`
+        - 通配符: `*` 匹配所有资源请求。
+      - `resource`，字符串类型; 资源类型。
+        - 例:`pods`
+        - 通配符: `*`匹配所有资源请求。
+    - 非资源匹配属性:
+      - `nonResourcePath`，字符串类型; 非资源请求路径。
+        - 例如:`/version`或`/apis`
+        - 通配符:
+          - `*` 匹配所有非资源请求。
+          - `/foo/*` 匹配`/foo/`的所有子路径。
+    - `readonly`，键入 boolean，如果为 true，则表示该策略仅适用于 get，list 和 watch 操作。
 
 **注意:** 未设置的属性与类型设置为零值的属性相同(例如空字符串，0、false)，然而未知的应该可读性优先。
+
 
 在将来，策略可能以 JSON 格式表示，并通过 REST 界面进行管理。
 
@@ -65,9 +67,6 @@ title: ABAC 模式
 要允许任何经过身份验证的用户执行某些操作，请将策略组属性设置为 `"system:authenticated“`。
 
 要允许任何未经身份验证的用户执行某些操作，请将策略组属性设置为`"system:authentication“`。
-
-要允许用户执行任何操作，请使用 apiGroup，命名空间，
-资源和 nonResourcePath 属性设置为 `“*"`的策略.
 
 要允许用户执行任何操作，请使用设置为`“*”` 的 apiGroup，namespace，resource 和 nonResourcePath 属性编写策略。
 
@@ -87,27 +86,32 @@ Kubectl 使用 api-server 的 `/api` 和 `/apis` 端点进行协商客户端/服
 
 ## 例子
 
-1. Alice 可以对所有资源做任何事情:
+ 
+ 1. Alice 可以对所有资源做任何事情:
 
     ```json
     {"apiVersion": "abac.authorization.kubernetes.io/v1beta1", "kind": "Policy", "spec": {"user": "alice", "namespace": "*", "resource": "*", "apiGroup": "*"}}
     ```
-2. Kubelet 可以读取任何pod:
+ 
+ 2. Kubelet 可以读取任何pod:
 
     ```json
     {"apiVersion": "abac.authorization.kubernetes.io/v1beta1", "kind": "Policy", "spec": {"user": "kubelet", "namespace": "*", "resource": "pods", "readonly": true}}
     ```
-3. Kubelet 可以读写事件:
+ 
+ 3. Kubelet 可以读写事件:
 
     ```json
     {"apiVersion": "abac.authorization.kubernetes.io/v1beta1", "kind": "Policy", "spec": {"user": "kubelet", "namespace": "*", "resource": "events"}}
     ```
-4. Bob 可以在命名空间“projectCaribou"中读取 pod:
+ 
+ 4. Bob 可以在命名空间“projectCaribou"中读取 pod:
 
     ```json
     {"apiVersion": "abac.authorization.kubernetes.io/v1beta1", "kind": "Policy", "spec": {"user": "bob", "namespace": "projectCaribou", "resource": "pods", "readonly": true}}
     ```
-5. 任何人都可以对所有非资源路径进行只读请求:
+ 
+ 5. 任何人都可以对所有非资源路径进行只读请求:
 
     ```json
     {"apiVersion": "abac.authorization.kubernetes.io/v1beta1", "kind": "Policy", "spec": {"group": "system:authenticated", "readonly": true, "nonResourcePath": "*"}}
@@ -123,6 +127,7 @@ Kubectl 使用 api-server 的 `/api` 和 `/apis` 端点进行协商客户端/服
 ```shell
 system:serviceaccount:<namespace>:<serviceaccountname>
 ```
+
 创建新的命名空间也会导致创建一个新的服务帐户：
 
 ```shell
@@ -130,6 +135,7 @@ system:serviceaccount:<namespace>:default
 ```
 
 例如，如果要将 API 的 kube-system 完整权限中的默认服务帐户授予，则可以将此行添加到策略文件中:
+
 
 ```json
 {"apiVersion":"abac.authorization.kubernetes.io/v1beta1","kind":"Policy","spec":{"user":"system:serviceaccount:kube-system:default","namespace":"*","resource":"*","apiGroup":"*"}}
