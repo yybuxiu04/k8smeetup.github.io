@@ -9,7 +9,7 @@ notitle: true
 ### 概要
 
 
-Kubernetes API server为api对象验证并配置数据，包括pods, services, replicationcontrollers和其它api对象。API Server提供REST操作和到集群共享状态的前端，所有其他组件通过它进行交互。
+Kubernetes API server 为 api 对象验证并配置数据，包括 pods、 services、 replicationcontrollers和其它 api 对象。API Server 提供 REST 操作和到集群共享状态的前端，所有其他组件通过它进行交互。
 
 ```
 kube-apiserver
@@ -139,13 +139,9 @@ TaintBasedEvictions=true|false (ALPHA - default=false)
       --insecure-bind-address ip                                用于监听--insecure-port的IP地址 (设置成0.0.0.0表示监听所有接口)。（默认值127.0.0.1)
 
       --insecure-port int                                       用于监听不安全和为认证访问的端口。这个配置假设你已经设置了防火墙规则，使得这个端口不能从集群外访问。对集群的公共地址的443端口的访问将被代理到这个端口。默认设置中使用nginx实现。（默认值8080）
-<--
-      --kubelet-certificate-authority string                    Path to a cert file for the certificate authority.
--->
+
       --kubelet-certificate-authority string                    证书authority的文件路径。
-<--
-      --kubelet-client-certificate string                       Path to a client cert file for TLS.
--->
+
       --kubelet-client-certificate string                       用于TLS的客户端证书文件路径。
 
       --kubelet-client-key string                               用于TLS的客户端证书密钥文件路径.
@@ -205,7 +201,7 @@ TaintBasedEvictions=true|false (ALPHA - default=false)
        
       --service-account-key-file stringArray                    包含PEM加密的x509 RSA或ECDSA私钥或公钥的文件，用于验证ServiceAccount令牌。如果设置该值，--tls-private-key-file将会被使用。指定的文件可以包含多个密钥，并且这个标志可以和不同的文件一起多次使用。
       
-      --service-cluster-ip-range ipNet                         CIDR表示的IP范围，服务的cluster ip将从中分配。 一定不要和分配给nodes和pods的IP范围产生重叠。
+      --service-cluster-ip-range ipNet                          CIDR表示的IP范围，服务的cluster ip将从中分配。 一定不要和分配给nodes和pods的IP范围产生重叠。
       
       --ssh-keyfile string                                      如果不为空，在使用安全的SSH代理访问节点时，将这个文件作为用户密钥文件。
       
@@ -225,7 +221,7 @@ TaintBasedEvictions=true|false (ALPHA - default=false)
       
       --tls-sni-cert-key namedCertKey                           一对x509证书和私钥的文件路径, 可以使用符合正式域名的域形式作为后缀。 如果没有提供域形式后缀, 则将提取证书名。 非通配符版本优先于通配符版本, 显示的域形式优先于证书中提取的名字。 对于多个密钥/证书对, 请多次使用--tls-sni-cert-key。例如: "example.crt,example.key" or "foo.crt,foo.key:*.foo.com,foo.com". （默认值[])
       
-      --token-auth-file string                                 如果设置该值，这个文件将被用于通过令牌认证来保护API服务的安全端口。
+      --token-auth-file string                                  如果设置该值，这个文件将被用于通过令牌认证来保护API服务的安全端口。
       
       --version version[=true]                                  打印版本信息并退出。
       
