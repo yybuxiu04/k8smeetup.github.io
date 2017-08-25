@@ -232,7 +232,7 @@ A template for a replication controller spinning up the pod with the 3 container
 - replace `{% raw %}{{ pillar['dns_domain'] }}{% endraw %}` with `cluster.local.`
 - add `--kube_master_url=${KUBERNETES_MASTER}` parameter to the kube2sky container command.
 
-In addition the service template at [cluster/addons/dns/kubedns-controller.yaml.in][12] needs the following replacement:
+# In addition the service template at [cluster/addons/dns/kubedns-controller.yaml.in][12] needs the following replacement:
 
 - `{% raw %}{{ pillar['dns_server'] }}{% endraw %}` with `10.10.10.10`.
 
