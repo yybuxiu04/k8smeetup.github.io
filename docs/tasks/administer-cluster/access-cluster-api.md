@@ -1,10 +1,8 @@
 ---
+
 title:  通过 Kubernetes API 访问集群
-redirect_from:
-- "/docs/user-guide/accessing-the-cluster/"
-- "/docs/user-guide/accessing-the-cluster.html"
-- "/docs/concepts/cluster-administration/access-cluster/"
 ---
+
 
 {% capture overview %}
 This page shows how to access clusters using the Kubernetes API.
@@ -107,14 +105,14 @@ $ curl $APISERVER/api --header "Authorization: Bearer $TOKEN" --insecure
 
 
 ### 通过编程方式访问 API
-Kubernetes 支持 [Go](#go-client) 和  [Python](#python-client)  客户端库。
+Kubernetes 官方支持的客户端库有 [Go](#go-client) 和  [Python](#python-client)  客户端库。
 
 #### Go 客户端
 
 * 要获得客户端库， 可以运行如下命令 : `go get k8s.io/client-go/<version number>/kubernetes` 参考 [https://github.com/kubernetes/client-go](https://github.com/kubernetes/client-go) 来了解哪些版本是被支持的。 
 * 写一个基于 client-go 客户端库的应用。 注意到 client-go 定义了它自己的 API 对象， 因此在需要时需要导入 client-go 的 API 定义，而不是从仓库。 比如, `import "k8s.io/client-go/1.4/pkg/api/v1"` 是正确的做法。 
 
-Go 的客户端可以使用和 kubectl 命令行工具相同的 [kubeconfig 配置文件](/docs/concepts/cluster-administration/authenticate-across-clusters-kubeconfig/) 来定位和认证 apiserver。 参考这个 [例子](https://git.k8s.io/client-go/examples/out-of-cluster/main.go)：
+Go 的客户端可以使用和 kubectl 命令行工具相同的 [kubeconfig 配置文件](/docs/concepts/cluster-administration/authenticate-across-clusters-kubeconfig/) 来定位和认证 apiserver。 参考这个 [例子](https://git.k8s.io/client-go/examples/out-of-cluster-client-configuration/main.go)：
 
 ```golang
 import (
@@ -159,7 +157,7 @@ for i in ret.items:
 
 #### 其它语言
 
- 使用其它语言访问 API 可以参考这个文档[客户端库](https://git.k8s.io/community/contributors/devel/client-libraries.md) 。 您可以了解到其它语言的库如何认证 API 的。
+ 使用其它语言访问 API 可以参考这个文档[客户端库](/docs/reference/client-libraries/)  。 您可以了解到其它语言的库如何认证 API 的。
 
 
 
@@ -179,7 +177,7 @@ for i in ret.items:
 在一个 pod 之内连接 API 的推荐方式有：
 
   - 在 pod 里的某个容器运行 kubectl 代理， 或者以后台进程运行在容器内。 这个代理提供了 Kubernetes API 到 pod 的本地主机端口的代理。 因此 pod 的任何一个容器的其它进程都可以访问这个代理。 参考这个例子 [在 pod 里使用 kubectl proxy](https://github.com/kubernetes/kubernetes/tree/{{page.githubbranch}}/examples/kubectl-container/).
-  - 使用 Go 客户端库， 使用`rest.InClusterConfig()` 和  `kubernetes.NewForConfig()` 函数创建一个客户端。 它们负责处理 apiserver 的定位和认证。参考 [例子](https://git.k8s.io/client-go/examples/in-cluster/main.go)
+  - 使用 Go 客户端库， 使用`rest.InClusterConfig()` 和  `kubernetes.NewForConfig()` 函数创建一个客户端。 它们负责处理 apiserver 的定位和认证。参考 [例子](https://git.k8s.io/client-go/examples/in-cluster-client-configuration/main.go)
 
 在每种情形下， pod 里的凭证都被用于与 apiserver 的安全通信。
 

@@ -1,10 +1,12 @@
 ---
-assignees:
+approvers:
 - bgrant0607
 - erictune
 - lavalamp
+ 
 title: Kubernetes API的访问控制
 ---
+
  
 用户可以通过kubectl命令, 客户端库， 或者发送REST请求来[访问API](/docs/user-guide/accessing-the-cluster) 。kubernetes用户和[服务账号](/docs/tasks/configure-pod-container/configure-service-account/)都可以用于API访问时的授权。 当请求到达API时， 它会经历几个阶段，如下图所示：
 ![Diagram of request handling steps for Kubernetes API request](/images/docs/admin/access-control-overview.svg)

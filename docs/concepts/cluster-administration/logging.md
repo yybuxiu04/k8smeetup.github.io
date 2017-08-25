@@ -1,23 +1,18 @@
+
 ---
-assignees:
+approvers:
 - crassirostris
 - piosz
 title: 日志架构
-redirect_from:
-- "/docs/concepts/clusters/logging/"
-- "/docs/concepts/clusters/logging.html"
-redirect_from:
-- "/docs/user-guide/logging/overview/"
-- "/docs/user-guide/logging/overview.html"
 ---
 
 
 
-应用程序和系统日志可以帮助您了解集群内正在发生什么。日志对调试问题和监控集群活动非常有用。大部分现代化应用都有某种日志记录机制；同样地，大多数容器引擎也被设计成支持某种日志记录机制。容器化应用中最简单且受欢迎的日志记录方式就是写入标准输出和标准错误流。
+应用和系统日志可以帮助您了解集群内正在发生什么。日志对调试问题和监控集群活动非常有用。大部分现代化应用都有某种日志记录机制；同样地，大多数容器引擎也被设计成支持某种日志记录机制。容器化应用中最简单且受欢迎的日志记录方式就是写入标准输出和标准错误流。
 
 
 
-但是，由容器引擎或运行时提供的原生功能通常不足以满足完整的日志记录方案。例如，如果容器崩溃, pod 被驱逐,或 node 宕机,您仍然想访问您的应用日志。这种情况下，日志应该具有独立的存储和生命周期,不依赖于 node , pods ,或容器。这个概念叫 _集群级的日志_ 。集群级日志记录需要一个独立的后台来存储，分析和查询日志。Kubernetes 没有为日志数据提供原生存储方案，但是您可以将许多现有的的日志解决方案集成到您的 Kubernetes 集群。
+但是，由容器引擎或 runtime 提供的原生功能通常不足以满足完整的日志记录方案。例如，如果容器崩溃, pod 被驱逐,或 node 宕机,您仍然想访问您的应用日志。这种情况下，日志应该具有独立的存储和生命周期,不依赖于 node , pods ,或容器。这个概念叫 _集群级的日志_ 。集群级日志记录需要一个独立的后台来存储，分析和查询日志。Kubernetes 没有为日志数据提供原生存储方案，但是您可以将许多现有的的日志解决方案集成到您的 Kubernetes 集群。
 
 
 * TOC
@@ -32,7 +27,7 @@ redirect_from:
 
 ## Kubernetes中的常规日志记录
 
-本节,您会看到kubernetes中日志流向标准输出的例子。该演示通过 [定义 pod ](/docs/concepts/cluster-administration/counter-pod.yaml) 创建一个每秒向标准输出写入数据的容器。
+本节,您会看到 kubernetes 中向标准输出写入日志的例子。该演示通过 [定义 pod ](/docs/concepts/cluster-administration/counter-pod.yaml) 创建一个每秒向标准输出写入数据的容器。
 
 
 {% include code.html language="yaml" file="counter-pod.yaml" ghlink="/docs/tasks/debug-application-cluster/counter-pod.yaml" %}
@@ -60,7 +55,7 @@ $ kubectl logs counter
 
 
 
-一旦容器崩溃的话，您可以使用 `kubectl logs` 和参数 `--previous` 恢复之前的容器日志。如果您的pod有多个容器，您应该通过命令指定容器名访问相应的容器日志。详见 [`kubectl logs` 文档](/docs/user-guide/kubectl/{{page.version}}/#logs)。
+一旦容器崩溃的话，您可以使用 `kubectl logs` 和参数 `--previous` 恢复之前的容器日志。如果您的 pod 有多个容器，您应该通过命令指定容器名访问相应的容器日志。详见 [`kubectl logs` 文档](/docs/user-guide/kubectl/{{page.version}}/#logs)。
 
 
 
@@ -70,7 +65,7 @@ $ kubectl logs counter
 
 
 
-容器化应用写入 `stdout` 和 `stderr` 的任何数据,都会被容器引擎捕获并被重定向到某个位置。例如，Docker容器引擎重定向这两个输出流到 [日志驱动](https://docs.docker.com/engine/admin/logging/overview) ，该日志驱动在Kubernetes中被配置成写入json文件。
+容器化应用写入 `stdout` 和 `stderr` 的任何数据,都会被容器引擎捕获并被重定向到某个位置。例如，Docker 容器引擎重定向这两个输出流到 [日志驱动](https://docs.docker.com/engine/admin/logging/overview) ，该日志驱动在 Kubernetes 中被配置成写入json文件。
 
 
 
@@ -78,15 +73,15 @@ $ kubectl logs counter
 
 
 
-默认情况下，如果容器重启，kubelet会保留被终止的容器日志。如果pod从工作节点驱逐，该pod中所有的容器也会被驱逐，包括容器日志。
+默认情况下，如果容器重启，kubelet 会保留被终止的容器日志。如果 pod 从工作节点驱逐，该 pod 中所有的容器也会被驱逐，包括容器日志。
 
 
 
-节点级别日志中，需要重点考虑实现日志的轮转，以此来保证日志不会消耗节点上所有的可用空间。Kubernetes 当前并不负责轮转日志，而是通过部署工具建立一个解决问题的方案。例如，在Kubernetes集群中，用 `kube-up.sh` 部署一个每小时运行的工具 [`logrotate`](http://www.linuxcommand.org/man_pages/logrotate8.html) 。您也可以设置容器运行时来自动地轮转应用日志，比如，使用 Docker的 `log-opt` 选项。在 `kube-up.sh` 脚本中，后一种方式适用于 GCP 的 COS 镜像，而前一种方式适用于任何环境。这两种情况下，默认日志超过10MB大小时触发日志轮转。
+节点级别日志中，需要重点考虑实现日志的轮转，以此来保证日志不会消耗节点上所有的可用空间。Kubernetes 当前并不负责轮转日志，而是通过部署工具建立一个解决问题的方案。例如，在 Kubernetes 集群中，用 `kube-up.sh` 部署一个每小时运行的工具 [`logrotate`](http://www.linuxcommand.org/man_pages/logrotate8.html) 。您也可以设置容器 runtime 来自动地轮转应用日志，比如，使用 Docker的 `log-opt` 选项。在 `kube-up.sh` 脚本中，后一种方式适用于 GCP 的 COS 镜像，而前一种方式适用于任何环境。这两种情况下，默认日志超过10MB大小时触发日志轮转。
 
 
 
-例如，您可以找到关于 `kube-up.sh` 怎样为 GCP 环境的 COS 镜像设置日志的详细信息，相应的脚本在 [script][cosConfigureHelper] 。
+例如，您可以发现 `kube-up.sh` 怎样为 GCP 环境的 COS 镜像设置日志的详细信息，相应的脚本在 [script][cosConfigureHelper] 。
 
 
 
@@ -105,11 +100,11 @@ $ kubectl logs counter
 
 
 * 运行在容器中的 Kubernetes scheduler 和 kube-proxy 。
-* 未运行在容器中的 kubelet 和容器运行时，比如 Docker 。
+* 未运行在容器中的 kubelet 和容器 runtime，比如 Docker 。
 
 
 
-在使用systemd机制的服务器上，kubelet 和容器运行时写入日志到 journald。如果没有 systemd ，他们写入日志到 `/var/log` 目录中的`.log`文件。容器中的系统组件一直将日志写入到 `/var/log` 目录，绕过了默认的日志机制。他们使用 [glog][glog] 日志库。您可以在 [development docs on logging](https://git.k8s.io/community/contributors/devel/logging.md) 找到这些组件的日志告警级别协议。
+在使用 systemd 机制的服务器上，kubelet 和容器 runtime 写入日志到 journald。如果没有 systemd ，他们写入日志到 `/var/log` 目录的`.log`文件。容器中的系统组件通常将日志写到 `/var/log` 目录，绕过了默认的日志机制。他们使用 [glog][glog] 日志库。您可以在 [development docs on logging](https://git.k8s.io/community/contributors/devel/logging.md) 找到这些组件的日志告警级别协议。
 
 
 
@@ -146,11 +141,11 @@ $ kubectl logs counter
 
 
 
-对于Kubernetes集群来说，使用节点级的日志代理是最常用和被鼓励的方式，因为在每个节点上仅创建一个代理，并且不需要对节点上的应用做修改。但是，节点级的日志 _仅适用于应用程序的标准输出和标准错误输出_。
+对于 Kubernetes 集群来说，使用节点级的日志代理是最常用和被鼓励的方式，因为在每个节点上仅创建一个代理，并且不需要对节点上的应用做修改。但是，节点级的日志 _仅适用于应用程序的标准输出和标准错误输出_。
 
 
 
-Kubernetes没有指定日志代理，但是有两个可选的日志代理与Kubernetes发行版一起打包。[Stackdriver Logging](/docs/user-guide/logging/stackdriver) 适用于 Google Cloud Platform，和[Elasticsearch](/docs/user-guide/logging/elasticsearch)。您可以在专门的文档中找到更多的信息和说明。两者都使用 [fluentd](http://www.fluentd.org/) 配合自定义配置作为节点上的代理。
+Kubernetes 没有指定日志代理，但是有两个可选的日志代理与 Kubernetes 发行版一起打包。[Stackdriver Logging](/docs/user-guide/logging/stackdriver) 适用于 Google Cloud Platform，和[Elasticsearch](/docs/user-guide/logging/elasticsearch)。您可以在专门的文档中找到更多的信息和说明。两者都使用 [fluentd](http://www.fluentd.org/) 配合自定义配置作为节点上的代理。
 
 
 
@@ -162,7 +157,7 @@ Kubernetes没有指定日志代理，但是有两个可选的日志代理与Kube
 
 
 
-* 伴生容器将应用日志流向自己的标准输出。
+* 伴生容器向本身的标准输出写入应用日志流。
 * 伴生容器运行一个日志代理，该日志代理被配置成从应用容器收集日志。
 
 
@@ -171,21 +166,21 @@ Kubernetes没有指定日志代理，但是有两个可选的日志代理与Kube
 
 
 
-通过让您的伴生容器输出`stdout` 和 `stderr`流，您就可以利用在每个节点上的kubelet和日志代理。伴生容器从文件，socket或journald读取日志。每个伴生容器打印其自己的`stdout` 和 `stderr` 流。
+利用伴生容器向自身的 `stdout` 和 `stderr` 传输流的方式，您就可以利用每个节点上的 kubelet 和日志代理来处理日志。伴生容器从文件，socket 或 journald 读取日志。每个伴生容器打印其自己的 `stdout` 和 `stderr` 流。
 
 
 
-这种方式允许您分离出不同的日志流，这些日志流来自您应用的不同功能，其中一些可能缺乏对写入`stdout` 和 `stderr`的支持。背后重定向的逻辑很小，所以不会是很严重的开销。除此之外，因为kubelet处理`stdout` 和`stderr`，所以您可以使用`kubectl logs`工具。
+这种方式允许您分离出不同的日志流，这些日志流来自您应用的不同功能，其中一些可能缺乏对写入 `stdout` 和 `stderr` 的支持。背后重定向的逻辑很小，所以不会是很严重的开销。除此之外，因为kubelet处理 `stdout` 和 `stderr`，所以您也可以使用 `kubectl logs` 工具。
 
 
 
-考虑接下来的例子。pod中的容器向两个文件写不同格式的日志，下面是这个pod的配置文件:
+考虑接下来的例子。pod的容器向两个文件写不同格式的日志，下面是这个pod的配置文件:
 
 {% include code.html language="yaml" file="two-files-counter-pod.yaml" ghlink="/docs/concepts/cluster-administration/two-files-counter-pod.yaml" %}
 
 
 
-在同一个日志流中有两种不同格式的日志条目，这有点混乱，即使您试图重定向它们到容器的 `stdout`流。取而代之的是，您可以引入两个伴生容器。每一个伴生容器可以从共享卷跟踪特定的日志文件，并重定向文件内容到各自的 `stdout` 流。
+在同一个日志流中有两种不同格式的日志条目，这有点混乱，即使您试图重定向它们到容器的 `stdout` 流。取而代之的是，您可以引入两个伴生容器。每一个伴生容器可以从共享卷跟踪特定的日志文件，并重定向文件内容到各自的 `stdout` 流。
 
 
 
@@ -238,11 +233,11 @@ Mon Jan  1 00:00:02 UTC 2001 INFO 2
 
 
 
-**提示**：在伴生容器中使用日志代理会导致严重的资源损耗。此外，您不能使用 `kubectl logs` 命令访问日志，因为日志并没有被kubelet管理。
+**提示**：在伴生容器中使用日志代理会导致严重的资源损耗。此外，您不能使用 `kubectl logs` 命令访问日志，因为日志并没有被 kubelet 管理。
 
 
 
-例如，您可以使用 [Stackdriver](/docs/tasks/debug-application-cluster/logging-stackdriver/) ，它用fluentd作为日志代理。这是实现此种方式的两个配置文件。第一个文件包含配置 fluentd 的 [ConfigMap](/docs/tasks/configure-pod-container/configmap/) 。
+例如，您可以使用 [Stackdriver](/docs/tasks/debug-application-cluster/logging-stackdriver/) ，它用 fluentd 作为日志代理。这是实现此种方式的两个配置文件。第一个文件包含配置 fluentd 的 [ConfigMap](/docs/tasks/configure-pod-container/configmap/) 。
 
 {% include code.html language="yaml" file="fluentd-sidecar-config.yaml" ghlink="/docs/concepts/cluster-administration/fluentd-sidecar-config.yaml" %}
 
@@ -259,7 +254,7 @@ Mon Jan  1 00:00:02 UTC 2001 INFO 2
 
 
 
-一段时间后，您可以在 Stackdriver界面看到日志消息。
+一段时间后，您可以在 Stackdriver 界面看到日志消息。
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: 垃圾回收
+title: 垃圾收集
 redirect_from:
 - "/docs/concepts/abstractions/controllers/garbage-collection/"
 - "/docs/concepts/abstractions/controllers/garbage-collection.html"
@@ -12,9 +12,9 @@ redirect_from:
 
 
 
-Kubernetes 垃圾回收器的角色是删除指定的对象，这些对象曾经有但以后不再拥有 Owner 了。
+Kubernetes 垃圾收集器的角色是删除指定的对象，这些对象曾经有但以后不再拥有 Owner 了。
 
-**注意**：垃圾回收是 beta 特性，在 Kubernetes 1.4 及以上版本默认启用。
+**注意**：垃圾收集是 beta 特性，在 Kubernetes 1.4 及以上版本默认启用。
 
 {% endcapture %}
 
@@ -65,7 +65,7 @@ metadata:
 ```
 
 
-## 控制垃圾回收器删除 Dependent
+## 控制垃圾收集器删除 Dependent
 
 当删除对象时，可以指定是否该对象的 Dependent 也自动删除掉。自动删除 Dependent 也称为 *级联删除*。Kubernetes 中有两种 *级联删除* 的模式：*background* 模式和 *foreground* 模式。
 
@@ -75,7 +75,7 @@ metadata:
 
 ### Background 级联删除
 
-在 *background 级联删除* 模式下，Kubernetes 会立即删除 Owner 对象，然后垃圾回收器会在后台删除这些 Dependent。
+在 *background 级联删除* 模式下，Kubernetes 会立即删除 Owner 对象，然后垃圾收集器会在后台删除这些 Dependent。
 
 
 
@@ -87,7 +87,7 @@ metadata:
  * 会设置对象的 `deletionTimestamp` 字段
  * 对象的 `metadata.finalizers` 字段包含了值 "foregroundDeletion"
 
- 一旦被设置为 “删除中” 状态，垃圾收集器会删除对象的所有 Dependent。垃圾回收器删除了所有 “Blocking” 的 Dependent（对象的 `ownerReference.blockOwnerDeletion=true`）之后，它会删除 Owner 对象。
+ 一旦被设置为 “删除中” 状态，垃圾收集器会删除对象的所有 Dependent。垃圾收集器删除了所有 “Blocking” 的 Dependent（对象的 `ownerReference.blockOwnerDeletion=true`）之后，它会删除 Owner 对象。
 
 
 
@@ -101,7 +101,7 @@ metadata:
 
 通过为 Owner 对象设置 `deleteOptions.propagationPolicy` 字段，可以控制级联删除策略。可能的取值包括：“orphan”、“Foreground” 或 “Background”。
 
-对很多 Controller 资源，包括 ReplicationController、ReplicaSet、StatefulSet、DaemonSet 和 Deployment，默认的垃圾回收策略是 `orphan`。因此，除非指定其它的垃圾回收策略，否则所有 Dependent 对象使用的都是 `orphan` 策略。
+对很多 Controller 资源，包括 ReplicationController、ReplicaSet、StatefulSet、DaemonSet 和 Deployment，默认的垃圾收集策略是 `orphan`。因此，除非指定其它的垃圾收集策略，否则所有 Dependent 对象使用的都是 `orphan` 策略。
 
 下面是一个在后台删除 Dependent 对象的例子：
 
@@ -148,7 +148,7 @@ kubectl delete replicaset my-repset --cascade=false
 
 
 ## 已知的问题
-* 1.7 版本，垃圾回收不支持 [自定义资源](/docs/concepts/api-extension/custom-resources/)，比如那些通过 CustomResourceDefinition 新增，或者通过 API server 聚集而成的资源对象。
+* 1.7 版本，垃圾收集不支持 [自定义资源](/docs/concepts/api-extension/custom-resources/)，比如那些通过 CustomResourceDefinition 新增，或者通过 API server 聚集而成的资源对象。
 
 [其它已知的问题](https://github.com/kubernetes/kubernetes/issues/26120)
 

@@ -1,12 +1,8 @@
 ---
-assignees:
+approvers:
 - vishh
 title: 调度 GPU
-redirect_from:
-- "/docs/user-guide/gpus/"
-- "/docs/user-guide/gpus.html"
 ---
-
 
 {% capture overview %}
 
@@ -38,18 +34,22 @@ Kubernetes 提供对分布在节点上的 NVIDIA GPU 进行管理的**实验**�
 
 ```yaml
 apiVersion: v1
-kind: pod
-spec:
-  containers:
-    -
+kind: Pod 
+metadata:
+  name: gpu-pod
+spec: 
+  containers: 
+    - 
       name: gpu-container-1
-      resources:
-        limits:
+      image: gcr.io/google_containers/pause:2.0
+      resources: 
+        limits: 
           alpha.kubernetes.io/nvidia-gpu: 2 # requesting 2 GPUs
     -
       name: gpu-container-2
-      resources:
-        limits:
+      image: gcr.io/google_containers/pause:2.0
+      resources: 
+        limits: 
           alpha.kubernetes.io/nvidia-gpu: 3 # requesting 3 GPUs
 ```
 
@@ -141,8 +141,7 @@ metadata:
 spec:
   containers:
   - name: gpu-container-1
-    securityContext:
-      privileged: true
+    image: gcr.io/google_containers/pause:2.0
     resources:
       limits:
         alpha.kubernetes.io/nvidia-gpu: 1

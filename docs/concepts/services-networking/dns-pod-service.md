@@ -47,11 +47,8 @@ Kubernetes DNS 在集群中调度 DNS Pod 和 Service ，配置 kubelet 以通�
 
 命名端口需要创建 SRV 记录，这些端口是正常 Service或 [Headless
 Services](/docs/concepts/services-networking/service/#headless-services) 的一部分。
-
 对每个命名端口，SRV 记录具有 `_my-port-name._my-port-protocol.my-svc.my-namespace.svc.cluster.local` 这种形式。
-
 对普通 Service，这会被解析成端口号和 CNAME：`my-svc.my-namespace.svc.cluster.local`。
-
 对 Headless Service，这会被解析成多个结果，Service 对应的每个 backend Pod各一个，包含 `auto-generated-name.my-svc.my-namespace.svc.cluster.local` 这种形式 Pod 的端口号和 CNAME。
 
 #### 后向兼容性
@@ -70,24 +67,19 @@ Services](/docs/concepts/services-networking/service/#headless-services) 的一�
 
 
 
-#### 基于 Pod hostname、subdomain 字段的 A记录和主机名
+#### 基于 Pod hostname、subdomain 字段的 A 记录和主机名
 
 当前，创建 Pod 后，它的主机名是该 Pod 的 `metadata.name` 值。
 
 在 v1.2 版本中，用户可以配置 Pod annotation， 通过 `pod.beta.kubernetes.io/hostname` 来设置 Pod 的主机名。
-
 如果为 Pod 配置了 annotation，会优先使用 Pod 的名称作为主机名。
-
 例如，给定一个 Pod，它具有 annotation `pod.beta.kubernetes.io/hostname: my-pod-name`，该 Pod 的主机名被设置为 “my-pod-name”。
 
 
 
 在 v1.3 版本中，PodSpec 具有 `hostname` 字段，可以用来指定 Pod 的主机名。这个字段的值优先于 annotation `pod.beta.kubernetes.io/hostname`。
-
 在 v1.2 版本中引入了 beta 特性，用户可以为 Pod 指定 annotation，其中 `pod.beta.kubernetes.io/subdomain` 指定了 Pod 的子域名。
-
 最终的域名将是 “<hostname>.<subdomain>.<pod namespace>.svc.<cluster domain>”。
-
 举个例子，Pod 的主机名 annotation 设置为 “foo”，子域名 annotation 设置为 “bar”，在 Namespace “my-namespace” 中对应的 FQDN 为 “foo.bar.my-namespace.svc.cluster.local”。 
 
 
@@ -147,7 +139,7 @@ spec:
 
 
 
-在Kubernetes v1.2 版本中，`Endpoints` 对象也具有 annotation `endpoints.beta.kubernetes.io/hostnames-map`。它的值是 map[string(IP)][endpoints.HostRecord] 的 JSON格式，例如： '{"10.245.1.6":{HostName: "my-webserver"}}'。
+在Kubernetes v1.2 版本中，`Endpoints` 对象也具有 annotation `endpoints.beta.kubernetes.io/hostnames-map`。它的值是 map[string(IP)][endpoints.HostRecord] 的 JSON 格式，例如： '{"10.245.1.6":{HostName: "my-webserver"}}'。
 
 如果是 Headless Service 的 `Endpoints`，会以  <hostname>.<service name>.<pod namespace>.svc.<cluster domain> 的格式创建 A 记录。对示例中的 JSON 字符串，如果 `Endpoints` 是为名称为 “bar” 的 Headless Service 而创建的，其中一个 `Endpoints`  的 IP 是 “10.245.1.6”，则会创建一个名称为 “my-webserver.bar.my-namespace.svc.cluster.local” 的 A 记录，该 A 记录查询将返回 “10.245.1.6”。
 
@@ -375,7 +367,6 @@ kube-dns   10.180.3.17:53,10.180.3.17:53    1h
 ## 工作原理
 
 运行的 Kubernetes DNS Pod 包含 3 个容器 —— kubedns、dnsmasq 和负责健康检查的 healthz。
-
 kubedns 进程监视 Kubernetes master 对 Service 和 Endpoint 操作的变更，并维护一个内存查询结构去处理 DNS 请求。dnsmasq 容器增加了一个 DNS 缓存来改善性能。为执行对 dnsmasq 和 kubedns 的健康检查，healthz 容器提供了一个单独的健康检查 Endpoint。
 
 DNS Pod 通过一个静态 IP 暴露为一个 Service。一旦 IP 被分配，kubelet 会通过 `--cluster-dns=10.0.0.10` 标志将配置的 DNS 传递给每一个容器。
@@ -387,7 +378,6 @@ Kubernetes 集群 DNS 服务器（根据 [SkyDNS](https://github.com/skynetservi
 
 
 ## 从 Node 继承 DNS
-
 当运行 Pod 时，kubelet 将集群 DNS 服务器和搜索路径追加到 Node 自己的 DNS 设置中。如果 Node 能够在大型环境中解析 DNS 名字，Pod 也应该没问题。参考下面 "已知问题” 中给出的更多说明。
 
 如果不想这样，或者希望 Pod 有一个不同的 DNS 配置，可以使用 kubelet 的 `--resolv-conf` 标志。设置为 "" 表示 Pod 将不继承自 DNS。设置为一个合法的文件路径，表示 kubelet 将使用这个文件而不是 `/etc/resolv.conf` 。
