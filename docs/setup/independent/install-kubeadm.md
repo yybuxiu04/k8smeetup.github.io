@@ -20,7 +20,7 @@ title: 安装 kubeadm
 {% endcapture %}
 
 
-
+{% capture steps %}
 ## 检查需要的端口
 
 ### 主节点
