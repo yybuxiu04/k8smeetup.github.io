@@ -9,7 +9,7 @@ title: Kubernetes on Mesos
 
 ## About Kubernetes on Mesos
 
-<!-- TODO: Update, clean up. -->
+
 
 Mesos allows dynamic sharing of cluster resources between Kubernetes and other first-class Mesos frameworks such as [HDFS][1], [Spark][2], and [Chronos][3].
 Mesos also ensures applications from different frameworks running on your cluster are isolated and that resources are allocated fairly among them.
