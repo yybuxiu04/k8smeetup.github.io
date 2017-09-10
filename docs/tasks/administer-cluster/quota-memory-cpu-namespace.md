@@ -1,5 +1,5 @@
 ---
-标题：为名字空间配置CPU和内存配额（Quota）
+title: 为名字空间配置CPU和内存配额（Quota）
 ---
 
 {% capture overview %}
@@ -202,5 +202,3 @@ kubectl delete namespace quota-mem-cpu-example
 
 
 {% include templates/task.md %}
-
-

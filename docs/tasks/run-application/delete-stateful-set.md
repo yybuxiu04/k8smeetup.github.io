@@ -5,7 +5,7 @@ approvers:
 - foxish
 - janetkuo
 - smarterclayton
-标题：删除StatefulSet
+title: 删除StatefulSet
 ---
 
 {% capture overview %}
