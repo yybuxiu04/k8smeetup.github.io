@@ -1,5 +1,5 @@
 ---
-标题：配置API对象（API Object）的配额（Quota）
+title: 对象（API Object）的配额（Quota）
 ---
 
 
@@ -198,5 +198,3 @@ kubectl delete namespace quota-object-example
 
 
 {% include templates/task.md %}
-
-
