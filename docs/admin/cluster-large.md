@@ -2,7 +2,7 @@
 assignees:
 - davidopp
 - lavalamp
-title：搭建大型集群
+title: 搭建大型集群
 ---
 
 
