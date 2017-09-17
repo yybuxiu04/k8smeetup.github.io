@@ -1,5 +1,5 @@
 ---
-title: 对象（API Object）的配额（Quota）
+标题：配置API对象（API Object）的配额（Quota）
 ---
 
 

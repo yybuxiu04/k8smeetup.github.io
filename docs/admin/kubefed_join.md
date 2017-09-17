@@ -1,4 +1,9 @@
+---
+title: kubefed join
+notitle: true
+---
 ## kubefed join
+
 Join a cluster to a federation
 
 ### Synopsis

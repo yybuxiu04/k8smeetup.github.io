@@ -86,7 +86,7 @@ However, an administrator can configure a custom recycler pod template using the
 apiVersion: v1
 kind: Pod
 metadata:
-  name: pv-recycler-
+  name: pv-recycler
   namespace: default
 spec:
   restartPolicy: Never
@@ -128,7 +128,7 @@ For volume plugins that support the Delete reclaim policy, deletion removes both
 * Glusterfs
 * VsphereVolume
 * Quobyte Volumes
-* HostPath (single node testing only -- local storage is not supported in any way and WILL NOT WORK in a multi-node cluster)
+* HostPath (Single node testing only -- local storage is not supported in any way and WILL NOT WORK in a multi-node cluster)
 * VMware Photon
 * Portworx Volumes
 * ScaleIO Volumes
@@ -139,20 +139,20 @@ For volume plugins that support the Delete reclaim policy, deletion removes both
 Each PV contains a spec and status, which is the specification and status of the volume.
 
 ```yaml
-  apiVersion: v1
-  kind: PersistentVolume
-  metadata:
-    name: pv0003
-  spec:
-    capacity:
-      storage: 5Gi
-    accessModes:
-      - ReadWriteOnce
-    persistentVolumeReclaimPolicy: Recycle
-    storageClassName: slow
-    nfs:
-      path: /tmp
-      server: 172.17.0.2
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv0003
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
+  storageClassName: slow
+  nfs:
+    path: /tmp
+    server: 172.17.0.2
 ```
 
 ### Capacity
@@ -220,7 +220,7 @@ it will become fully deprecated in a future Kubernetes release.
 Current reclaim policies are:
 
 * Retain -- manual reclamation
-* Recycle -- basic scrub ("rm -rf /thevolume/*")
+* Recycle -- basic scrub (`rm -rf /thevolume/*`)
 * Delete -- associated storage asset such as AWS EBS, GCE PD, Azure Disk, or OpenStack Cinder volume is deleted
 
 Currently, only NFS and HostPath support recycling. AWS EBS, GCE PD, Azure Disk, and Cinder volumes support deletion.
@@ -536,7 +536,7 @@ parameters:
   ```
   $ kubectl create secret generic heketi-secret --type="kubernetes.io/glusterfs" --from-literal=key='opensesame' --namespace=default
   ```
-  Example of a secret can be found in [glusterfs-provisioning-secret.yaml](https://git.k8s.io/kubernetes/examples/persistent-volume-provisioning/glusterfs/glusterfs-secret.yaml).
+  Example of a secret can be found in [glusterfs-provisioning-secret.yaml](https://github.com/kubernetes/examples/tree/master/staging/persistent-volume-provisioning/glusterfs/glusterfs-secret.yaml).
 * `clusterid`: `630372ccdc720a92c681fb928f27b53f` is the ID of the cluster which will be used by Heketi when provisioning the volume. It can also be a list of clusterids, for ex:
   "8452344e2becec931ece4e33c4674e4e,42982310de6c63381718ccfa6d8cf397". This is an optional parameter.
 * `gidMin`, `gidMax` : The minimum and maximum value of GID range for the storage class. A unique value (GID) in this range ( gidMin-gidMax ) will be used for dynamically provisioned volumes. These are optional values. If not specified, the volume will be provisioned with a value between 2000-2147483647 which are defaults for gidMin and gidMax respectively.
@@ -574,6 +574,7 @@ parameters:
 #### vSphere
 
 1. Create a persistent volume with a user specified disk format.
+
 ```yaml
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
@@ -587,9 +588,10 @@ parameters:
 -   `diskformat`: `thin`, `zeroedthick` and `eagerzeroedthick`. Default: `"thin"`.
 
 2. Create a persistent volume with a disk format on a user specified datastore.
+
 ```yaml
 kind: StorageClass
-apiVersion: storage.k8s.io/v1beta1
+apiVersion: storage.k8s.io/v1
 metadata:
   name: fast
 provisioner: kubernetes.io/vsphere-volume
@@ -602,9 +604,10 @@ parameters:
 -   `datastore`: The user can also specify the datastore in the Storageclass. The volume will be created on the datastore specified in the storage class which in this case is `VSANDatastore`. This field is optional. If not specified as in previous YAML description, the volume will be created on the datastore specified in the vsphere config file used to initialize the vSphere Cloud Provider.
 
 3. Create a persistent volume with user specified VSAN storage capabilities.
+
 ```yaml
 kind: StorageClass
-apiVersion: storage.k8s.io/v1beta1
+apiVersion: storage.k8s.io/v1
 metadata:
   name: vsan-policy-fast
 provisioner: kubernetes.io/vsphere-volume
@@ -631,24 +634,27 @@ parameters:
 
     vSphere Infrastructure(VI) administrator can specify storage requirements for applications in terms of storage capabilities while creating a storage class inside Kubernetes. Please note that while creating a StorageClass, administrator should specify storage capability names used in the table above as these names might differ from the ones used by VSAN. For example - Number of disk stripes per object is referred to as stripeWidth in VSAN documentation however vSphere Cloud Provider uses a friendly name diskStripes.
 
-You can see [vSphere example](https://git.k8s.io/kubernetes/examples/volumes/vsphere) for more details.
+You can see [vSphere example](https://github.com/kubernetes/examples/tree/master/staging/volumes/vsphere) for more details.
 
 #### Ceph RBD
 
 ```yaml
-  apiVersion: storage.k8s.io/v1
-  kind: StorageClass
-  metadata:
-    name: fast
-  provisioner: kubernetes.io/rbd
-  parameters:
-    monitors: 10.16.153.105:6789
-    adminId: kube
-    adminSecretName: ceph-secret
-    adminSecretNamespace: kube-system
-    pool: kube
-    userId: kube
-    userSecretName: ceph-secret-user
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: fast
+provisioner: kubernetes.io/rbd
+parameters:
+  monitors: 10.16.153.105:6789
+  adminId: kube
+  adminSecretName: ceph-secret
+  adminSecretNamespace: kube-system
+  pool: kube
+  userId: kube
+  userSecretName: ceph-secret-user
+  fsType: ext4
+  imageFormat: "2"
+  imageFeatures: "layering"
 ```
 
 * `monitors`: Ceph monitors, comma delimited. This parameter is required.
@@ -661,6 +667,9 @@ You can see [vSphere example](https://git.k8s.io/kubernetes/examples/volumes/vsp
   ```
   $ kubectl create secret generic ceph-secret --type="kubernetes.io/rbd" --from-literal=key='QVFEQ1pMdFhPUnQrSmhBQUFYaERWNHJsZ3BsMmNjcDR6RFZST0E9PQ==' --namespace=kube-system
   ```
+* `fsType`: fsType that is supported by kubernetes. Default: `"ext4"`.
+* `imageFormat`: Ceph RBD image format, "1" or "2". Default is "1".
+* `imageFeatures`: This parameter is optional and should only be used if you set `imageFormat` to "2". Currently supported features are `layering` only. Default is "", and no features are turned on.
 
 #### Quobyte
 
@@ -695,6 +704,8 @@ parameters:
 
 #### Azure Disk
 
+##### Azure Unmanaged Disk Storage Class
+
 ```yaml
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
@@ -709,7 +720,26 @@ parameters:
 
 * `skuName`: Azure storage account Sku tier. Default is empty.
 * `location`: Azure storage account location. Default is empty.
-* `storageAccount`: Azure storage account name. If storage account is not provided, all storage accounts associated with the resource group are searched to find one that matches `skuName` and `location`. If storage account is provided, it must reside in the same resource group as the cluster, and `skuName` and `location` are ignored.
+* `storageAccount`: Azure storage account name. If a storage account is provided, it must reside in the same resource group as the cluster, and `location` is ignored. If a storage account is not provided, a new storage account will be created in the same resource group as the cluster.
+
+##### New Azure Disk Storage Class (starting from v1.7.2)
+
+```yaml
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: slow
+provisioner: kubernetes.io/azure-disk
+parameters:
+  storageaccounttype: Standard_LRS
+  kind: Shared
+```
+
+* `storageaccounttype`: Azure storage account Sku tier. Default is empty.
+* `kind`: Possible values are `shared` (default), `dedicated`, and `managed`. When `kind` is `shared`, all unmanaged disks are created in a few shared storage accounts in the same resource group as the cluster. When `kind` is `dedicated`, a new dedicated storage account will be created for the new unmanaged disk in the same resource group as the cluster.
+
+- Premium VM can attach both Standard_LRS and Premium_LRS disks, while Standard VM can only attach Standard_LRS disks.
+- Managed VM can only attach managed disks and unmanaged VM can only attach unmanaged disks.
 
 #### Azure File
 
@@ -727,10 +757,9 @@ parameters:
 
 * `skuName`: Azure storage account Sku tier. Default is empty.
 * `location`: Azure storage account location. Default is empty.
-* `storageAccount`: Azure storage account name.  Default is empty.
-If storage account is not provided, all storage accounts associated with the resource group are searched to find one that matches `skuName` and `location`. If storage account is provided, it must reside in the same resource group as the cluster, and `skuName` and `location` are ignored.
+* `storageAccount`: Azure storage account name.  Default is empty. If a storage account is not provided, all storage accounts associated with the resource group are searched to find one that matches `skuName` and `location`. If a storage account is provided, it must reside in the same resource group as the cluster, and `skuName` and `location` are ignored.
 
-During provision, a secret will be created for mounting credentials. If the cluster has enabled both [RBAC](/docs/admin/authorization/rbac/) and [Controller Roles](/docs/admin/authorization/rbac/#controller-roles), you will first need to add `create` permission of resource `secret` for clusterrole `system:controller:persistent-volume-binder`.
+During provision, a secret is created for mounting credentials. If the cluster has enabled both [RBAC](/docs/admin/authorization/rbac/) and [Controller Roles](/docs/admin/authorization/rbac/#controller-roles), add the `create` permission of resource `secret` for clusterrole `system:controller:persistent-volume-binder`.
 
 #### Portworx Volume
 
@@ -756,6 +785,7 @@ parameters:
 *  `ephemeral`: specifies whether the volume should be cleaned-up after unmount or should be persistent. `emptyDir` use case can set this value to true and `persistent volumes` use case such as for databases like Cassandra should set to false, [true/false] (default `false`). A string is expected here i.e. `"true"` and not `true`.
 
 #### ScaleIO
+
 ```yaml
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
@@ -792,6 +822,7 @@ $> kubectl create secret generic sio-secret --type="kubernetes.io/scaleio" --fro
 ```
 
 #### StorageOS
+
 ```yaml
 kind: StorageClass
 apiVersion: storage.k8s.io/v1

@@ -1,5 +1,5 @@
 ---
-assignees:
+approvers:
 - erictune
 - lavalamp
 - deads2k
@@ -47,7 +47,7 @@ title: ABAC 模式
         - 通配符:
           - `*` 匹配所有非资源请求。
           - `/foo/*` 匹配`/foo/`的所有子路径。
-    - `readonly`，键入 boolean，如果为 true，则表示该策略仅适用于 get，list 和 watch 操作。
+    - `readonly`，键入 boolean，如果为 true，则表示该策略仅适用于 get，list 和 watch 匹配资源的操作。
 
 **注意:** 未设置的属性与类型设置为零值的属性相同(例如空字符串，0、false)，然而未知的应该可读性优先。
 

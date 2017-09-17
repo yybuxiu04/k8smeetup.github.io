@@ -38,7 +38,7 @@ why you might want multiple clusters are:
 * Scalability: There are scalability limits to a single kubernetes cluster (this
   should not be the case for most users. For more details:
   [Kubernetes Scaling and Performance Goals](https://git.k8s.io/community/sig-scalability/goals.md)).
-* [Hybrid cloud](###hybrid-cloud-capabilities): You can have multiple clusters on different cloud providers or
+* [Hybrid cloud](#hybrid-cloud-capabilities): You can have multiple clusters on different cloud providers or
   on-premises data centers.
 
 ### Caveats
@@ -70,7 +70,7 @@ register each cluster's API endpoint and credentials with your
 Federation API Server (See the
 [federation admin guide](/docs/admin/federation/) for details).
 
-Thereafter, your [API resources](##api-resources) can span different clusters
+Thereafter, your [API resources](#api-resources) can span different clusters
 and cloud providers.
 
 ## Setting up federation
@@ -97,7 +97,7 @@ The following guides explain some of the resources in detail:
 * [Secrets](/docs/tasks/administer-federation/secret/)
 * [Services](/docs/concepts/cluster-administration/federation-service-discovery/)
 
-[API reference docs](/docs/federation/api-reference/) lists all the
+[API reference docs](/docs/reference/federation/) lists all the
 resources supported by federation apiserver.
 
 ## Cascading deletion
@@ -133,7 +133,7 @@ It is okay to have multiple clusters per availability zone, though on balance we
 Reasons to prefer fewer clusters are:
 
   - improved bin packing of Pods in some cases with more nodes in one cluster (less resource fragmentation).
-  - reduced operational overhead (though the advantage is diminished as ops tooling and processes matures).
+  - reduced operational overhead (though the advantage is diminished as ops tooling and processes mature).
   - reduced costs for per-cluster fixed resource costs, e.g. apiserver VMs (but small as a percentage
     of overall cluster cost for medium to large clusters).
 

@@ -1,4 +1,9 @@
+---
+title: kubefed unjoin
+notitle: true
+---
 ## kubefed unjoin
+
 Unjoin a cluster from a federation
 
 ### Synopsis

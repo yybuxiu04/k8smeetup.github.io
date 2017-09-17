@@ -1,4 +1,9 @@
+---
+title: kubefed
+notitle: true
+---
 ## kubefed
+
 kubefed controls a Kubernetes Cluster Federation
 
 ### Synopsis
@@ -6,7 +11,7 @@ kubefed controls a Kubernetes Cluster Federation
 
 kubefed controls a Kubernetes Cluster Federation. 
 
-Find more information at https://github.com/kubernetes/kubernetes.
+Find more information at [https://github.com/kubernetes/kubernetes](https://github.com/kubernetes/kubernetes).
 
 ```
 kubefed
