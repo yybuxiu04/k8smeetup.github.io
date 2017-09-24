@@ -1,6 +1,21 @@
 # K8SMeetup 中文翻译社区每周文章更新汇编
 
 
+### 第 8 周：2017-09-11 ~~ 2017-09-17 - 有效合并 6 篇
+
+[https://k8smeetup.github.io/docs/tasks/access-application-cluster/connecting-frontend-backend](https://k8smeetup.github.io/docs/tasks/access-application-cluster/connecting-frontend-backend) by [zhangqx2010](https://github.com/zhangqx2010)
+
+[https://k8smeetup.github.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume](https://k8smeetup.github.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume) by [zhangqx2010](https://github.com/zhangqx2010)
+
+[https://k8smeetup.github.io/docs/admin/bootstrap-tokens](https://k8smeetup.github.io/docs/admin/bootstrap-tokens) by [zhangqx2010](https://github.com/zhangqx2010)
+
+[https://k8smeetup.github.io/docs/admin/authorization/webhook](https://k8smeetup.github.io/docs/admin/authorization/webhook) by [zhangqx2010](https://github.com/zhangqx2010)
+
+[https://k8smeetup.github.io/docs/admin/service-accounts-admin](https://k8smeetup.github.io/docs/admin/service-accounts-admin) by [zhangqx2010](https://github.com/zhangqx2010)
+
+[https://k8smeetup.github.io/docs/admin/cluster-large](https://k8smeetup.github.io/docs/admin/cluster-large) by [zhangqx2010](https://github.com/zhangqx2010)
+
+
 ### 第 7 周：2017-09-04 ~~ 2017-09-10 - 有效合并 3 篇
 
 [https://k8smeetup.github.io/docs/tasks/administer-cluster/calico-network-policy](https://k8smeetup.github.io/docs/tasks/administer-cluster/calico-network-policy) by [Tony-CCIE](https://github.com/Tony-CCIE)
@@ -70,3 +85,4 @@
 [https://k8smeetup.github.io/docs/admin/accessing-the-api](https://k8smeetup.github.io/docs/admin/accessing-the-api) by [hackstoic](https://github.com/hackstoic)
 
 [https://k8smeetup.github.io/docs/admin/kube-apiserver](https://k8smeetup.github.io/docs/admin/kube-apiserver) by [xiaosuiba](https://github.com/xiaosuiba)
+

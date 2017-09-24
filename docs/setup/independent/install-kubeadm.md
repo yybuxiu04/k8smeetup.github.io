@@ -1,4 +1,3 @@
-
 ---
 title: 安装 kubeadm
 ---

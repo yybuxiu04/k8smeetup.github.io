@@ -3,6 +3,15 @@
 本文档只包含新增更新，[更新参考](contribution-update.md)。
 
 
+### 第 8 周：2017-09-11 ~~ 2017-09-17 - 有效合并 3 篇
+
+[https://k8smeetup.github.io/docs/admin/authorization/abac](https://k8smeetup.github.io/docs/admin/authorization/abac) by [brucehex](https://github.com/brucehex)
+
+[https://k8smeetup.github.io/docs/user-guide/docker-cli-to-kubectl](https://k8smeetup.github.io/docs/user-guide/docker-cli-to-kubectl) by [rootsongjc](https://github.com/rootsongjc)
+
+[https://k8smeetup.github.io/docs/user-guide/jsonpath](https://k8smeetup.github.io/docs/user-guide/jsonpath) by [rootsongjc](https://github.com/rootsongjc)
+
+
 ### 第 7 周：2017-09-04 ~~ 2017-09-10 - 有效合并 15 篇
 
 [https://k8smeetup.github.io/docs/tools/index](https://k8smeetup.github.io/docs/tools/index) by [Tony-CCIE](https://github.com/Tony-CCIE)
@@ -277,3 +286,4 @@
 ### 第 0 周：2017-07-17 ~~ 2017-07-23 - 有效合并 1 篇
 
 [https://k8smeetup.github.io/docs/admin/ovs-networking](https://k8smeetup.github.io/docs/admin/ovs-networking) by [Tony-CCIE](https://github.com/Tony-CCIE)
+

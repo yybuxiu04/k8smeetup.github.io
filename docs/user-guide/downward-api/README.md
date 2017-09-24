@@ -1,5 +1,4 @@
 Following these examples, you will create a pod with a container that consumes the pod's name,namespace, and resource values using the [downward API](/docs/tasks/inject-data-application/downward-api-volume-expose-pod-information/).
-
 ## Step Zero: Prerequisites
 
 This example assumes you have a Kubernetes cluster installed and running, and that you have

@@ -1,5 +1,5 @@
 ---
-标题: 在 Pod 里使用 ConfigMap 数据
+title: 在 Pod 里使用 ConfigMap 数据
 ---
 
 {% capture overview %}

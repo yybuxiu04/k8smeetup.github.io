@@ -13,7 +13,7 @@ title: 日志架构
 
 
 
-但是，由容器引擎或 runtime 提供的原生功能通常不足以满足完整的日志记录方案。例如，如果容器崩溃, pod 被驱逐,或 node 宕机,您仍然想访问您的应用日志。这种情况下，日志应该具有独立的存储和生命周期,不依赖于 node , pods ,或容器。这个概念叫 _集群级的日志_ 。集群级日志记录需要一个独立的后台来存储，分析和查询日志。Kubernetes 没有为日志数据提供原生存储方案，但是您可以将许多现有的的日志解决方案集成到您的 Kubernetes 集群。
+但是，由容器引擎或 runtime 提供的原生功能通常不足以满足完整的日志记录方案。例如，如果容器崩溃, pod 被驱逐,或 node 宕机时,您仍然想访问您的应用日志。这种情形下，日志应该具有独立的存储和生命周期,不依赖于 node , pods ,或容器。这个概念叫 _集群级的日志_ 。集群级日志记录需要一个独立的后台来存储，分析和查询日志。Kubernetes 没有为日志数据提供原生存储方案，但是您可以将许多现有的的日志解决方案集成到您的 Kubernetes 集群。
 
 
 * TOC
@@ -44,7 +44,7 @@ pod "counter" created
 
 
 
-使用`kubectl logs`命令获取日志
+使用`kubectl logs`命令获取日志:
 
 ```shell
 $ kubectl logs counter
@@ -78,7 +78,7 @@ $ kubectl logs counter
 
 
 
-节点级别日志中，需要重点考虑实现日志的轮转，以此来保证日志不会消耗节点上所有的可用空间。Kubernetes 当前并不负责轮转日志，而是通过部署工具建立一个解决问题的方案。例如，在 Kubernetes 集群中，用 `kube-up.sh` 部署一个每小时运行的工具 [`logrotate`](http://www.linuxcommand.org/man_pages/logrotate8.html) 。您也可以设置容器 runtime 来自动地轮转应用日志，比如，使用 Docker的 `log-opt` 选项。在 `kube-up.sh` 脚本中，后一种方式适用于 GCP 的 COS 镜像，而前一种方式适用于任何环境。这两种情况下，默认日志超过10MB大小时触发日志轮转。
+节点级别日志中，需要重点考虑实现日志的轮转，以此来保证日志不会消耗节点上所有的可用空间。Kubernetes 当前并不负责轮转日志，而是通过部署工具建立一个解决问题的方案。例如，在 Kubernetes 集群中，用 `kube-up.sh` 部署一个每小时运行的工具 [`logrotate`](https://linux.die.net/man/8/logrotate) 。您也可以设置容器 runtime 来自动地轮转应用日志，比如，使用 Docker的 `log-opt` 选项。在 `kube-up.sh` 脚本中，后一种方式适用于 GCP 的 COS 镜像，而前一种方式适用于任何环境。这两种情况下，默认日志超过10MB大小时触发日志轮转。
 
 
 

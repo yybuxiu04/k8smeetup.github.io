@@ -1,5 +1,5 @@
 ---
-assignees:
+approvers:
 - bprashanth
 - enisoc
 - erictune
@@ -24,7 +24,7 @@ title: 运行 ZooKeeper， 一个 CP 分布式系统
 * [Cluster DNS](/docs/concepts/services-networking/dns-pod-service/)
 * [Headless Services](/docs/concepts/services-networking/service/#headless-services)
 * [PersistentVolumes](/docs/concepts/storage/volumes/)
-* [PersistentVolume Provisioning](http://releases.k8s.io/{{page.githubbranch}}/examples/persistent-volume-provisioning/)
+* [PersistentVolume Provisioning](https://github.com/kubernetes/examples/tree/{{page.githubbranch}}/staging/persistent-volume-provisioning/)
 * [ConfigMaps](/docs/tasks/configure-pod-container/configmap/)
 * [StatefulSets](/docs/concepts/abstractions/controllers/statefulsets/)
 * [PodDisruptionBudgets](/docs/admin/disruptions/#specifying-a-poddisruptionbudget)
@@ -328,7 +328,7 @@ statefulset "zk" deleted
 观察 StatefulSet 中的 Pods 变为终止状态。
 
 ```shell
-get pods -w -l app=zk
+kubectl get pods -w -l app=zk
 ```
 
 
@@ -727,7 +727,7 @@ drwxr-sr-x 3 zookeeper zookeeper 4096 Dec  5 20:45 /var/lib/zookeeper/data
 ## 管理 ZooKeeper 进程
 
 
-[ZooKeeper documentation](https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_supervision) 文档指出“你将需要一个监管程序用于管理每个 ZooKeeper 服务进程（JVM）”。在分布式系统中，使用一个看门狗（监管程序）来重启故障进程是一种常用的模式。
+[ZooKeeper 文档](https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_supervision) 指出“你将需要一个监管程序用于管理每个 ZooKeeper 服务进程（JVM）”。在分布式系统中，使用一个看门狗（监管程序）来重启故障进程是一种常用的模式。
 
 
 ### 处理进程故障
@@ -1023,8 +1023,7 @@ kubectl drain $(kubectl get pod zk-1 --template {{.spec.nodeName}}) --ignore-dae
 WARNING: Deleting pods not managed by ReplicationController, ReplicaSet, Job, or DaemonSet: fluentd-cloud-logging-kubernetes-minion-group-ixsl, kube-proxy-kubernetes-minion-group-ixsl; Ignoring DaemonSet-managed pods: node-problem-detector-v0.1-voc74
 pod "zk-1" deleted
 node "kubernetes-minion-group-ixsl" drained
-{% endraw %}
-```
+{% endraw %}```
 
 
 `zk-1` Pod 不能被调度。由于 `zk` StatefulSet 包含了一个防止 Pods 共存的 PodAntiAffinity 规则，而且只有两个节点可用于调度，这个 Pod 将保持在 Pending 状态。
@@ -1063,8 +1062,7 @@ WARNING: Deleting pods not managed by ReplicationController, ReplicaSet, Job, or
 WARNING: Ignoring DaemonSet-managed pods: node-problem-detector-v0.1-dyrog; Deleting pods not managed by ReplicationController, ReplicaSet, Job, or DaemonSet: fluentd-cloud-logging-kubernetes-minion-group-i4c4, kube-proxy-kubernetes-minion-group-i4c4
 There are pending pods when an error occurred: Cannot evict pod as it would violate the pod's disruption budget.
 pod/zk-2
-{% endraw %}
-```
+{% endraw %}```
 
 
 使用 `CRTL-C` 终止 kubectl。

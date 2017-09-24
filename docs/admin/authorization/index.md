@@ -1,5 +1,5 @@
 ---
-assignees:
+approvers:
 - erictune
 - lavalamp
 - deads2k
@@ -75,23 +75,7 @@ Kubernetes 有时会使用专门的动词检查授权以获得额外的权限。
 .. *截至1.6 RBAC模式是测试版.
 .. *要启用RBAC，请使用 `--authorization-mode=RBAC` 启动 apiserver.
 * **Webhook模式**  -  WebHook 是HTTP回调:发生事件时发生的HTTP POST; 通过HTTP POST简单的事件通知. 实施 WebHooks 的 Web 应用程序将在某些事情发生时向URL发送消息. 要了解有关使用Webhook模式的更多信息，请参阅[Webhook模式](/docs/admin/authorization/webhook/)
-* **自定义模块**  - 您可以创建使用Kubernetes的自定义模块. 要了解更多信息，请参阅下面的**自定义模块**。
 
-### 自定义模块
-
-可以相当容易地开发其他实现,APIserver 调用 Authorizer 接口：
-
-```go
-type Authorizer interface {
-  Authorize(a Attributes) error
-}
-```
-
-以确定是否允许每个API操作.
-
-授权插件是实现此接口的模块.授权插件代码位于 `pkg/auth/authorizer/$MODULENAME` 中。
-
-授权模块可以完全实现，也可以拨出远程授权服务。 授权模块可以实现自己的缓存，以减少具有相同或相似参数的重复授权调用的成本。 开发人员应该考虑缓存和撤销权限之间的交互。
 
 #### 检查API访问
 
@@ -137,11 +121,11 @@ subjectaccessreview "" created
 您的策略中必须包含一个标志，以指出您的策略包含哪个授权模块:
 
 可以使用以下标志:
- - `--authorization-mode=ABAC` 基于属性的访问控制(ABAC)模式允许您使用本地文件配置策略。
- - `--authorization-mode=RBAC` 基于角色的访问控制(RBAC)模式允许您使用Kubernetes API创建和存储策略.
- - `--authorization-mode=Webhook` WebHook是一种HTTP回调模式，允许您使用远程REST管理授权。
- - `--authorization-mode=AlwaysDeny` 此标志阻止所有请求. 仅使用此标志进行测试。
- - `--authorization-mode=AlwaysAllow` 此标志允许所有请求. 只有在您不需要API请求授权的情况下才能使用此标志。
+ * `--authorization-mode=ABAC` 基于属性的访问控制(ABAC)模式允许您使用本地文件配置策略。
+ * `--authorization-mode=RBAC` 基于角色的访问控制(RBAC)模式允许您使用Kubernetes API创建和存储策略.
+ * `--authorization-mode=Webhook` WebHook是一种HTTP回调模式，允许您使用远程REST管理授权。
+ * `--authorization-mode=AlwaysDeny` 此标志阻止所有请求. 仅使用此标志进行测试。
+ * `--authorization-mode=AlwaysAllow` 此标志允许所有请求. 只有在您不需要API请求授权的情况下才能使用此标志。
 
 您可以选择多个授权模块. 如果其中一种模式为 `AlwaysAllow`，则覆盖其他模式，并允许所有API请求。
 
