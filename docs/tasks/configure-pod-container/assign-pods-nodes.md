@@ -1,5 +1,5 @@
 ---
-title：向节点分配Pod
+title: 向节点分配Pod
 ---
 
 {% capture overview %}
