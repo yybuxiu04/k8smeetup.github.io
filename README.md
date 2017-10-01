@@ -132,13 +132,13 @@ cn-approvers:
 cn-approvers-update:
 - rootsongjc
 - xxx
-cn-review:
+cn-reviewers:
 - markthink
 - xxx
 ---
 ```
 
-加入元数据，方便上游跟踪文件的译者、更新译者与 review 译者。
+注：加入元数据，方便上游跟踪文件的译者、更新译者与 `review` 译者。对于文章的 `review` 作者由译者负责更新 `cn-reviewers` 字段内容。
 
 ### 翻译规范
 

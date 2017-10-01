@@ -28,7 +28,9 @@ title: 使用服务发布您的应用程序
 				
 		<h3>Kubernetes 服务概述</h3>
 
-			<p>Kubernetes <a href="/docs/concepts/workloads/pods/pod-overview/">Pods</a> 终有一死. Pods 实际上有一个 <a href="/docs/concepts/workloads/pods/pod-lifecycle/">生命周期</a>. 当工作节点死机时, 节点上运行的Pod也将丢失。 一个 <a href="/docs/user-guide/replication-controller/#what-is-a-replicationcontroller">ReplicationController</a> 可能会通过创建新的Pod以动态地将集群恢复到所需的状态，以保持您的应用程序运行。还有一种方法就是：决定是否使用具有3个副本的图像处理后端。这些副本是可替代的前端系统不应关心后端副本，即使Pod丢失并重建也不会更改。 也就是说，Kubernetes 集群中的每个 Pod 都有一个唯一的IP地址，即使在同一个节点上的 Pods 也是如此，所以此时就需要一种自动调整更改 Pod 的方法, 以便您的应用程序继续运行。输入 <i>服务</i>. Kubernetes 中的服务是一个抽象对象，它定义了一组逻辑的 Pods 和一个访问它们的策略。 服务让互相依赖的 Pod 之间的耦合松动。 服务由 YAML <a href="/docs/concepts/configuration/overview/#general-config-tips">(首选)</a> 或 JSON 定义。像所有 Kubernetes 对象一样。 针对服务的一组 Pod 通常由<i>Label选择器</i>确定（参见下文，为什么您可能希望不将 <code>选择器</code> 包含在规范中。</p>
+			<p>Kubernetes <a href="/docs/concepts/workloads/pods/pod-overview/">Pods</a> 终有一死. Pods 实际上有一个 <a href="/docs/concepts/workloads/pods/pod-lifecycle/">生命周期</a>. 当工作节点死机时, 节点上运行的Pod也将丢失。 一个 <a href="/docs/user-guide/replication-controller/#what-is-a-replicationcontroller">ReplicationController</a> 可能会通过创建新的Pod以动态地将集群恢复到所需的状态，以保持您的应用程序运行。还有一种方法就是：决定是否使用具有3个副本的图像处理后端。这些副本是可替代的前端系统不应关心后端副本，即使Pod丢失并重建也不会更改。 也就是说，Kubernetes 集群中的每个 Pod 都有一个唯一的IP地址，即使在同一个节点上的 Pods 也是如此，所以此时就需要一种自动调整更改 Pod 的方法, 以便您的应用程序继续运行。</p>
+
+			<p>Kubernetes 中的服务是一个抽象对象，它定义了一组逻辑的 Pods 和一个访问它们的策略。 服务让互相依赖的 Pod 之间的耦合松动。 服务由 YAML <a href="/docs/concepts/configuration/overview/#general-config-tips">(首选)</a> 或 JSON 定义。像所有 Kubernetes 对象一样。 针对服务的一组 Pod 通常由<i>Label选择器</i>确定（参见下文，为什么您可能希望不将 <code>选择器</code> 包含在规范中。</p>
 
 			<p>虽然每个 Pod 都有一个唯一的 IP 地址，但是这些 IP 不会在没有服务的情况下公开在群集之外。服务允许您的应用程序接收流量。 可以通过在 ServiceSpec 中指定<code>类型</code> 以不同方式显示服务：</p>
 			<ul>

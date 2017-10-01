@@ -1,6 +1,29 @@
 # K8SMeetup 中文翻译社区每周文章更新汇编
 
 
+### 第 9 周：2017-09-18 ~~ 2017-09-24 - 有效合并 10 篇
+
+[https://k8smeetup.github.io/docs/tutorials/stateful-application/mysql-wordpress-persistent-volume](https://k8smeetup.github.io/docs/tutorials/stateful-application/mysql-wordpress-persistent-volume) by [xiaosuiba](https://github.com/xiaosuiba)
+
+[https://k8smeetup.github.io/docs/concepts/cluster-administration/logging](https://k8smeetup.github.io/docs/concepts/cluster-administration/logging) by [bjdzliu](https://github.com/bjdzliu)
+
+[https://k8smeetup.github.io/docs/tutorials/stateful-application/zookeeper](https://k8smeetup.github.io/docs/tutorials/stateful-application/zookeeper) by [xiaosuiba](https://github.com/xiaosuiba)
+
+[https://k8smeetup.github.io/docs/concepts/overview/working-with-objects/annotations](https://k8smeetup.github.io/docs/concepts/overview/working-with-objects/annotations) by [zstony921010](https://github.com/zstony921010)
+
+[https://k8smeetup.github.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall](https://k8smeetup.github.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall) by [zhangqx2010](https://github.com/zhangqx2010)
+
+[https://k8smeetup.github.io/docs/tasks/configure-pod-container/attach-handler-lifecycle-event](https://k8smeetup.github.io/docs/tasks/configure-pod-container/attach-handler-lifecycle-event) by [NickSu86](https://github.com/NickSu86)
+
+[https://k8smeetup.github.io/docs/tasks/configure-pod-container/assign-memory-resource](https://k8smeetup.github.io/docs/tasks/configure-pod-container/assign-memory-resource) by [NickSu86](https://github.com/NickSu86)
+
+[https://k8smeetup.github.io/docs/tasks/configure-pod-container/assign-pods-nodes](https://k8smeetup.github.io/docs/tasks/configure-pod-container/assign-pods-nodes) by [NickSu86](https://github.com/NickSu86)
+
+[https://k8smeetup.github.io/docs/tasks/configure-pod-container/assign-cpu-resource](https://k8smeetup.github.io/docs/tasks/configure-pod-container/assign-cpu-resource) by [NickSu86](https://github.com/NickSu86)
+
+[https://k8smeetup.github.io/docs/tasks/configure-pod-container/configure-pod-configmap](https://k8smeetup.github.io/docs/tasks/configure-pod-container/configure-pod-configmap) by [NickSu86](https://github.com/NickSu86)
+
+
 ### 第 8 周：2017-09-11 ~~ 2017-09-17 - 有效合并 6 篇
 
 [https://k8smeetup.github.io/docs/tasks/access-application-cluster/connecting-frontend-backend](https://k8smeetup.github.io/docs/tasks/access-application-cluster/connecting-frontend-backend) by [zhangqx2010](https://github.com/zhangqx2010)

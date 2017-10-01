@@ -3,6 +3,31 @@
 本文档只包含新增更新，[更新参考](contribution-update.md)。
 
 
+### 第 9 周：2017-09-18 ~~ 2017-09-24 - 有效合并 11 篇
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/kube-router-network-policy](https://k8smeetup.github.io/docs/tasks/administer-cluster/kube-router-network-policy) by [chentao1596](https://github.com/chentao1596)
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/cilium-network-policy](https://k8smeetup.github.io/docs/tasks/administer-cluster/cilium-network-policy) by [chentao1596](https://github.com/chentao1596)
+
+[https://k8smeetup.github.io/docs/tasks/debug-application-cluster/resource-usage-monitoring](https://k8smeetup.github.io/docs/tasks/debug-application-cluster/resource-usage-monitoring) by [xuyang02965](https://github.com/xuyang02965)
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/reserve-compute-resources](https://k8smeetup.github.io/docs/tasks/administer-cluster/reserve-compute-resources) by [xiaosuiba](https://github.com/xiaosuiba)
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/share-configuration](https://k8smeetup.github.io/docs/tasks/administer-cluster/share-configuration) by [chentao1596](https://github.com/chentao1596)
+
+[https://k8smeetup.github.io/docs/concepts/workloads/pods/pod-lifecycle](https://k8smeetup.github.io/docs/concepts/workloads/pods/pod-lifecycle) by [rootsongjc](https://github.com/rootsongjc)
+
+[https://k8smeetup.github.io/docs/concepts/cluster-administration/controller-metrics](https://k8smeetup.github.io/docs/concepts/cluster-administration/controller-metrics) by [zstony921010](https://github.com/zstony921010)
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/memory-default-namespace](https://k8smeetup.github.io/docs/tasks/administer-cluster/memory-default-namespace) by [jianzhangbjz](https://github.com/jianzhangbjz)
+
+[https://k8smeetup.github.io/docs/tasks/configure-pod-container/configure-pod-initialization](https://k8smeetup.github.io/docs/tasks/configure-pod-container/configure-pod-initialization) by [NickSu86](https://github.com/NickSu86)
+
+[https://k8smeetup.github.io/docs/admin/authorization/index](https://k8smeetup.github.io/docs/admin/authorization/index) by [brucehex](https://github.com/brucehex)
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/safely-drain-node](https://k8smeetup.github.io/docs/tasks/administer-cluster/safely-drain-node) by [chentao1596](https://github.com/chentao1596)
+
+
 ### 第 8 周：2017-09-11 ~~ 2017-09-17 - 有效合并 3 篇
 
 [https://k8smeetup.github.io/docs/admin/authorization/abac](https://k8smeetup.github.io/docs/admin/authorization/abac) by [brucehex](https://github.com/brucehex)

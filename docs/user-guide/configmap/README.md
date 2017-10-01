@@ -1,5 +1,4 @@
 # ConfigMap example
-
 ## Step Zero: Prerequisites
 
 This example assumes you have a Kubernetes cluster installed and running, and that you have

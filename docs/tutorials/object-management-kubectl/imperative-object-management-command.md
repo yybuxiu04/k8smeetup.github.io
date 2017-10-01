@@ -1,8 +1,5 @@
 ---
 title: 使用命令式的方式管理 Kubernetes 对象
-redirect_from:
-- "/docs/concepts/tools/kubectl/object-management-using-imperative-commands/"
-- "/docs/concepts/tools/kubectl/object-management-using-imperative-commands.html"
 ---
 
 {% capture overview %}
@@ -123,8 +120,8 @@ TODO(pwittrock): 实现时取消注释.
 kubectl create service clusterip <myservicename> -o yaml --dry-run | kubectl set selector --local -f - 'environment=qa' -o yaml | kubectl create -f -
 ```
 
-1.  使用 `create service -o yaml --dry-run` 创建服务配置，并将其作为 YAML 打印到 stdout，而不是将其发送到 Kubernetes API 服务器。
-1.  使用 `set --local -f - -o yaml` 从 stdin 读取配置，并将更新后的配置作为 YAML 写入 stdout。
+1.  使用 `kubectl create service -o yaml --dry-run` 创建服务配置，并将其作为 YAML 打印到 stdout，而不是将其发送到 Kubernetes API 服务器。
+1.  使用 `kubectl set --local -f - -o yaml` 从 stdin 读取配置，并将更新后的配置作为 YAML 写入 stdout。
 1.  使用 `kubectl create -f -` 从 stdin 提供的配置创建对象。
 
 
@@ -138,8 +135,8 @@ kubectl create --edit -f /tmp/srv.yaml
 ```
 
 
-1. 使用`create service` 创建服务的配置并将其保存到 `/tmp/srv.yaml`。
-1. 使用`create --edit` 在创建对象之前打开配置文件进行编辑。
+1. 使用`kubectl create service` 创建服务的配置并将其保存到 `/tmp/srv.yaml`。
+1. 使用`kubectl create --edit` 在创建对象之前打开配置文件进行编辑。
 
 {% endcapture %}
 
@@ -147,8 +144,8 @@ kubectl create --edit -f /tmp/srv.yaml
 
 -  [使用对象配置管理 Kubernetes 对象(必要)](/docs/tutorials/object-management-kubectl/imperative-object-management-configuration/)
 -  [使用对象配置(声明式)管理 Kubernetes 对象](/docs/tutorials/object-management-kubectl/declarative-object-management-configuration/)
--  [Kubectl 命令参考](/docs/user-guide/kubectl/v1.6/)
--  [Kubernetes 对象模式参考](/docs/resources-reference/v1.6/)
+-  [Kubectl 命令参考](/docs/user-guide/kubectl/{{page.version}}/)
+-  [Kubernetes 对象模式参考](/docs/resources-reference/{{page.version}}/)
 {% endcapture %}
 
 {% include templates/concept.md %}

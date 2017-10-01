@@ -9,7 +9,7 @@ title: ABAC 模式
 
 {% capture overview %}
 
-基于属性的访问控制（ABAC）定义了访问控制范例，其中通过使用将属性组合在一起的策略来向用户授予访问权限。
+基于属性的访问控制（Attribute-based access control - ABAC）定义了访问控制范例，其中通过使用将属性组合在一起的策略来向用户授予访问权限。
 
 {% endcapture %}
 
@@ -22,7 +22,7 @@ title: ABAC 模式
 此文件是 JSON 格式[每行都是一个JSON对象](http://jsonlines.org/)，不应存在封闭的列表或映射，每行只有一个映射。
 
 
-每一行都是一个 "策略对象",策略对象是具有以下映射的属性:
+每一行都是一个 "策略对象"，策略对象是具有以下映射的属性:
 
     - 版本控制属性:
       - `apiVersion`，字符串类型: 有效值为"abac.authorization.kubernetes.io/v1beta1"，允许版本控制和转换策略格式。
@@ -47,7 +47,7 @@ title: ABAC 模式
         - 通配符:
           - `*` 匹配所有非资源请求。
           - `/foo/*` 匹配`/foo/`的所有子路径。
-    - `readonly`，键入 boolean，如果为 true，则表示该策略仅适用于 get，list 和 watch 匹配资源的操作。
+    - `readonly`，键入 boolean，如果为 true，则表示该策略仅适用于 get，list 和 watch 操作。
 
 **注意:** 未设置的属性与类型设置为零值的属性相同(例如空字符串，0、false)，然而未知的应该可读性优先。
 
@@ -74,7 +74,8 @@ title: ABAC 模式
 
 Kubectl 使用 api-server 的 `/api` 和 `/apis` 端点进行协商客户端/服务器版本。 通过创建/更新来验证发送到API的对象操作，kubectl 查询某些 swagger 资源。 对于API版本"v1", 那就是`/swaggerapi/api/v1` ＆ `/swaggerapi/ experimental/v1`。
 
-当使用 ABAC 授权时，这些特殊资源必须明确通过策略中的 `nonResourcePath` 属性暴露出来(参见下面的[examples](#examples)):
+当使用 ABAC 授权时，这些特殊资源必须明确通过策略中的 `nonResourcePath` 属性暴露出来(参见下面的[例子](#examples)):
+
 
 * `/api`，`/api/*`，`/apis`和`/apis/*` 用于 API 版本协商.
 * `/version` 通过 `kubectl version` 检索服务器版本.
@@ -93,7 +94,7 @@ Kubectl 使用 api-server 的 `/api` 和 `/apis` 端点进行协商客户端/服
     {"apiVersion": "abac.authorization.kubernetes.io/v1beta1", "kind": "Policy", "spec": {"user": "alice", "namespace": "*", "resource": "*", "apiGroup": "*"}}
     ```
  
- 2. Kubelet 可以读取任何pod:
+ 2. Kubelet 可以读取任何 Pod:
 
     ```json
     {"apiVersion": "abac.authorization.kubernetes.io/v1beta1", "kind": "Policy", "spec": {"user": "kubelet", "namespace": "*", "resource": "pods", "readonly": true}}
@@ -105,7 +106,7 @@ Kubectl 使用 api-server 的 `/api` 和 `/apis` 端点进行协商客户端/服
     {"apiVersion": "abac.authorization.kubernetes.io/v1beta1", "kind": "Policy", "spec": {"user": "kubelet", "namespace": "*", "resource": "events"}}
     ```
  
- 4. Bob 可以在命名空间“projectCaribou"中读取 pod:
+ 4. Bob 可以在命名空间"projectCaribou"中读取 Pod:
 
     ```json
     {"apiVersion": "abac.authorization.kubernetes.io/v1beta1", "kind": "Policy", "spec": {"user": "bob", "namespace": "projectCaribou", "resource": "pods", "readonly": true}}
@@ -136,12 +137,11 @@ system:serviceaccount:<namespace>:default
 
 例如，如果要将 API 的 kube-system 完整权限中的默认服务帐户授予，则可以将此行添加到策略文件中:
 
-
 ```json
 {"apiVersion":"abac.authorization.kubernetes.io/v1beta1","kind":"Policy","spec":{"user":"system:serviceaccount:kube-system:default","namespace":"*","resource":"*","apiGroup":"*"}}
 ```
 
-需要重新启动 apitorver 以获取新的策略行.
+需要重新启动 apiserver 以获取新的策略行.
 
 {% endcapture %}
 {% include templates/concept.md %}

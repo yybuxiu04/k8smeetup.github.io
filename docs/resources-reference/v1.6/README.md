@@ -1,5 +1,4 @@
 ## SynopsisStatic compilation of html from markdown including processing for grouping code snippets into arbitrary tabs.
-
 ## Code Example
 
 \> bdocs-tab:kubectl Deployment Config to run 3 nginx instances (max rollback set to 10 revisions).

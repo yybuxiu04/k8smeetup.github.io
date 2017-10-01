@@ -1,10 +1,7 @@
 ---
-assignees:
+approvers:
 - lavalamp
 title: Kubernetes 组件
-redirect_from:
-- "/docs/admin/cluster-components/"
-- "/docs/admin/cluster-components.html"
 ---
 
 {% capture overview %}
@@ -27,20 +24,20 @@ Master 组件可以在集群中的任何节点上运行。然而，为了简单�
 
 ### etcd
 
-[etcd](/docs/admin/etcd) 用于 Kubernetes 的后端存储。所有集群数据都存储在此处，始终为您的 Kubernetes 集群的 etcd 数据提供备份计划。
+[etcd](/docs/tasks/administer-cluster/configure-upgrade-etcd) 用于 Kubernetes 的后端存储。所有集群数据都存储在此处，始终为您的 Kubernetes 集群的 etcd 数据提供备份计划。
 
 ### kube-controller-manager
 
-[kube-controller-manager](/docs/admin/kube-controller-manager)运行控制器，它们是处理集群中常规任务的后台线程。逻辑上，每个控制器是一个单独的进程，但为了降低复杂性，它们都被编译成单个二进制文件，并在单个进程中运行。
+[kube-controller-manager](/docs/admin/kube-controller-manager)运行控制器，它们是处理集群中常规任务的后台线程。逻辑上，每个控制器是一个单独的进程，但为了降低复杂性，它们都被编译成独立的可执行文件，并在单个进程中运行。
 
 这些控制器包括:
 
 * 节点控制器: 当节点移除时，负责注意和响应。
 * 副本控制器: 负责维护系统中每个副本控制器对象正确数量的 Pod。
-* 端点控制器: 填充 Endpoints 对象(即连接 Services & Pods)。
-* 服务帐户和令牌控制器: 为新的命名空间创建默认帐户和 API 访问令牌.
+* 端点控制器: 填充 端点(Endpoints) 对象(即连接 Services & Pods)。
+* 服务帐户和令牌控制器: 为新的命名空间创建默认帐户和 API 访问令牌。
 
-### 云控制器管理器
+### 云控制器管理器-(cloud-controller-manager)
 
 云控制器管理器是用于与底层云提供商交互的控制器。云控制器管理器二进制是 Kubernetes v1.6 版本中引入的 Alpha 功能。
 
@@ -55,35 +52,37 @@ Master 组件可以在集群中的任何节点上运行。然而，为了简单�
 * 服务控制器: 用于创建，更新和删除云提供商负载平衡器
 * 数据卷控制器: 用于创建，附加和装载卷，并与云提供商进行交互以协调卷
 
-### kube-scheduler
+### 调度器 - (kube-scheduler)
 
-[kube-scheduler](/docs/admin/kube-scheduler)观看没有分配节点的新创建的 Pod，选择一个节点供他们运行。
+[kube-scheduler](/docs/admin/kube-scheduler)监视没有分配节点的新创建的 Pod，选择一个节点供他们运行。
 
-### 插件
+### 插件(addons)
 
-插件是实现集群功能的 Pod 和 Service。 Pods 可能通过 Deployments，ReplicationControllers 管理。命名空间的插件对象被创建在 `kube-system` 命名空间。
+插件是实现集群功能的 Pod 和 Service。 Pods 可以通过 Deployments，ReplicationControllers 管理。插件对象本身是受命名空间限制的，被创建于 `kube-system` 命名空间。
 
 Addon 管理器用于创建和维护附加资源. 有关详细信息，请参阅[here](http://releases.k8s.io/HEAD/cluster/addons).
 
 #### DNS
 
-虽然其他插件并不是严格要求的，但所有 Kubernetes 集群都应该具有[Cluster DNS](/docs/concepts/services-networking/dns-pod-service/)，许多示例依赖于它。
+虽然其他插件并不是必需的，但所有 Kubernetes 集群都应该具有[Cluster DNS](/docs/concepts/services-networking/dns-pod-service/)，许多示例依赖于它。
 
-Cluster DNS是一个 DNS 服务器，除了您的环境中的其他 DNS 服务器，它为 Kubernetes 服务提供DNS记录。
+Cluster DNS 是一个 DNS 服务器，和您部署环境中的其他 DNS 服务器一起工作，为 Kubernetes 服务提供DNS记录。
 
 Kubernetes 启动的容器自动将 DNS 服务器包含在 DNS 搜索中。
 
-#### 用户界面
+#### Web UI (Dashboard)
 
-kube-ui 提供了集群状态的只读概述。有关更多信息，请参阅[使用HTTP代理访问 Kubernetes API](/docs/tasks/access-kubernetes-api/http-proxy-access-api/)
+[Dashboard](/docs/tasks/access-application-cluster/web-ui-dashboard/) 是 Kubernetes 集群通用基于 Web 的 UI 界面。它允许用户可视化的方式管理集群和集群上的应用程序。
+
+dashboard 提供了集群状态的只读概述。有关更多信息，请参阅[使用HTTP代理访问 Kubernetes API](/docs/tasks/access-kubernetes-api/http-proxy-access-api/)
 
 #### 容器资源监控
 
-[容器资源监控](/docs/user-guide/monitoring)记录关于中央数据库中的容器的通用时间序列指标，并提供用于浏览该数据的 UI。
+[容器资源监控](/docs/tasks/debug-application-cluster/resource-usage-monitoring)将关于容器的一些常见的时间序列度量值保存到一个集中的数据库中，并提供用于浏览这些数据的界面。
 
-#### 集群级日志记录
+#### 集群层面日志
 
-[Cluster-level logging](/docs/user-guide/logging/overview) 负责使用搜索/浏览界面将容器日志保存到中央日志存储。
+[集群层面日志](/docs/concepts/cluster-administration/logging) 机制负责将容器的日志数据保存到一个集中的日志存储中，该存储能够提供搜索和浏览接口。
 
 ## 节点组件
 
@@ -91,35 +90,35 @@ kube-ui 提供了集群状态的只读概述。有关更多信息，请参阅[�
 
 ### kubelet
 
-[kubelet](/docs/admin/kubelet)是 Master 节点代理,它监视已分配给其节点的 Pod(通过 apiserver 或通过本地配置文件)和:
+[kubelet](/docs/admin/kubelet)是主要的节点代理,它监测已分配给其节点的 Pod(通过 apiserver 或通过本地配置文件)，提供如下功能:
 
-* 安装 Pod 的所需数据卷(Volume)。
+* 挂载 Pod 所需要的数据卷(Volume)。
 * 下载 Pod 的 secrets。
-* 通过 Docker码 运行(或通过 rkt)运行 Pod 的容器。
-* 定期对容器生命周期进行探测。
-* 如果需要，通过创建 *mirror pod* 将报告状态报告回系统的其余部分。
+* 通过 Docker 运行(或通过 rkt)运行 Pod 的容器。
+* 周期性的对容器生命周期进行探测。
+* 如果需要，通过创建 *镜像 Pod（Mirror Pod）* 将 Pod 的状态报告回系统的其余部分。
 * 将节点的状态报告回系统的其余部分。
 
 ### kube-proxy
 
 [kube-proxy](/docs/admin/kube-proxy)通过维护主机上的网络规则并执行连接转发，实现了Kubernetes服务抽象。
 
-
 ### docker
 
-Docker 用于运行容器。
+`Docker` 用于运行容器。
 
 ### rkt
 
-实验中支持 rkt 运行容器作为 Docker 的替代方案。
+支持 `rkt` 运行容器作为 Docker 的试验性替代方案。
 
 ### supervisord
 
-supervisord 是一个轻量级的过程监控和控制系统，可以用来保证 kubelet 和 docker 运行。
+`supervisord` 是一个轻量级的进程监控系统，可以用来保证 kubelet 和 docker 运行。
 
 ### fluentd
 
-fluentd 是一个守护进程，它有助于提供[cluster-level logging](#cluster-level-logging) 集群层级的日志。
+`fluentd` 是一个守护进程，它有助于提供[集群层面日志](#cluster-level-logging) 集群层面的日志。
+
 {% endcapture %}
 
 {% include templates/concept.md %}
