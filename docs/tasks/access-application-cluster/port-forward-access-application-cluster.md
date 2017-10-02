@@ -3,6 +3,10 @@ title: 通过端口转发访问集群中的应用程序
 redirect_from:
 - "/docs/user-guide/connecting-to-applications-port-forward/"
 - "/docs/user-guide/connecting-to-applications-port-forward.html"
+cn-approvers:
+- rootsongjc
+cn-reviewers:
+- rootsongjc
 ---
 
 {% capture overview %}

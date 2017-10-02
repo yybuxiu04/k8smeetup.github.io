@@ -2,6 +2,10 @@
 assignees:
 - liggitt
 title: Kubelet 认证/授权
+cn-approvers:
+- rootsongjc
+cn-reviewers:
+- rootsongjc
 ---
 
 * TOC

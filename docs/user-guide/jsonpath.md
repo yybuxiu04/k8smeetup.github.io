@@ -1,5 +1,9 @@
 ---
 title: JSONPath 支持
+cn-approvers:
+- rootsongjc
+cn-reviewers:
+- rootsongjc
 ---
 
 

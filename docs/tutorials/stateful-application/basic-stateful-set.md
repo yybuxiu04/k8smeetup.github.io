@@ -6,6 +6,8 @@ assignees:
 - janetkuo
 - kow3ns
 - smarterclayton
+cn-approvers:
+- xiaosuiba
 title: StatefulSet基本使用
 ---
 
@@ -22,7 +24,7 @@ title: StatefulSet基本使用
 * [Cluster DNS](/docs/concepts/services-networking/dns-pod-service/)
 * [Headless Services](/docs/concepts/services-networking/service/#headless-services)
 * [PersistentVolumes](/docs/concepts/storage/volumes/)
-* [PersistentVolume Provisioning](http://releases.k8s.io/{{page.githubbranch}}/examples/persistent-volume-provisioning/)
+* [PersistentVolume Provisioning](https://github.com/kubernetes/examples/tree/{{page.githubbranch}}/staging/persistent-volume-provisioning/)
 * [StatefulSets](/docs/concepts/abstractions/controllers/statefulsets/)
 * [kubectl CLI](/docs/user-guide/kubectl)
 
@@ -435,7 +437,7 @@ Patch `web` StatefulSet 的容器镜像。
 
 ```shell
 kubectl patch statefulset web --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value":"gcr.io/google_containers/nginx-slim:0.7"}]'
-"web" patched
+statefulset "web" patched
 ```
 
 
@@ -475,8 +477,8 @@ web-1   gcr.io/google_containers/nginx-slim:0.8
 web-2   gcr.io/google_containers/nginx-slim:0.8
 {% endraw %}```
 
-`web-0` has had its image updated, but `web-0` and `web-1` still have the original 
-image. Complete the update by deleting the remaining Pods.
+
+`web-0` 的镜像已经更新，但 `web-1` 和 `web-2` 仍然使用原来的镜像。请删除剩余的 pod 以完成更新操作。
 
 ​```shell
 kubectl delete pod web-1 web-2
@@ -645,7 +647,7 @@ web-2     1/1       Running   0         18s
 获取 Pod 的容器。
 
 ```shell{% raw %}
-get po web-2 --template '{{range $i, $c := .spec.containers}}{{$c.image}}{{end}}'
+kubectl get po web-2 --template '{{range $i, $c := .spec.containers}}{{$c.image}}{{end}}'
 gcr.io/google_containers/nginx-slim:0.8
 {% endraw %}
 ```
@@ -720,7 +722,7 @@ web-1     1/1       Running   0         18s
 获取 `web-1` Pod 的容器。
 
 ```shell{% raw %}
-get po web-1 --template '{{range $i, $c := .spec.containers}}{{$c.image}}{{end}}'
+kubectl get po web-1 --template '{{range $i, $c := .spec.containers}}{{$c.image}}{{end}}'
 gcr.io/google_containers/nginx-slim:0.8
 {% endraw %}
 ```

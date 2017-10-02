@@ -3,6 +3,10 @@ approvers:
 - bgrant0607
 - brendandburns
 - thockin
+cn-approvers:
+- rootsongjc
+cn-reviewers:
+- Jimexist
 title: Docker 用户使用 kubectl 命令指南
 ---
 

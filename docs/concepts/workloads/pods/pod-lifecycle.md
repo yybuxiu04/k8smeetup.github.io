@@ -3,6 +3,10 @@ title: Pod 生命周期
 redirect_from:
 - "/docs/user-guide/pod-states/"
 - "/docs/user-guide/pod-states.html"
+cn-approvers:
+- rootsongjc
+cn-reviewers:
+- zjj2wry
 ---
 
 {% capture overview %}

@@ -7,6 +7,10 @@ title: Horizontal Pod Autoscaling
 redirect_from:
 - "/docs/user-guide/horizontal-pod-autoscaling/"
 - "/docs/user-guide/horizontal-pod-autoscaling/index.html"
+cn-approvers:
+- rootsongjc
+cn-reviewers:
+- shirdrn
 ---
 
 

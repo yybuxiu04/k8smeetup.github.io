@@ -3,6 +3,10 @@ assignees:
 - ericchiang
 - mikedanese
 - jcbsmpsn
+cn-approvers:
+- rootsongjc
+cn-reviewers:
+- rootsongjc
 title: TLS 引导程序
 ---
 

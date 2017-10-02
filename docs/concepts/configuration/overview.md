@@ -5,6 +5,10 @@ title: 配置最佳实践
 redirect_from:
 - "/docs/user-guide/config-best-practices/"
 - "/docs/user-guide/config-best-practices.html"
+cn-approvers:
+- rootsongjc
+cn-reviewers:
+- shidrdn
 ---
 
 {% capture overview %}

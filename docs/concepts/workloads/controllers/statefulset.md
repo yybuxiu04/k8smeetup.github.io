@@ -10,6 +10,10 @@ title: StatefulSet
 redirect_from:
 - "/docs/concepts/abstractions/controllers/statefulsets/"
 - "/docs/concepts/abstractions/controllers/statefulsets.html"
+cn-approvers:
+- rootsongjc
+cn-reviewers:
+- shidrdn
 ---
 
 {% capture overview %}

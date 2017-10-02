@@ -5,6 +5,10 @@ redirect_from:
 - "/docs/user-guide/accessing-the-cluster.html"
 - "/docs/concepts/cluster-administration/access-cluster/"
 - "/docs/concepts/cluster-administration/access-cluster.html"
+cn-approvers:
+- rootsongjc
+cn-reviewers:
+- shidrdn
 ---
 
 * TOC

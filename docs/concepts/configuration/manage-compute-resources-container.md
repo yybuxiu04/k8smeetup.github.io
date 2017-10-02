@@ -1,5 +1,9 @@
 ---
 title: Managing Compute Resources for Containers
+cn-approvers:
+- rootsongjc
+cn-reviewers:
+- shirdrn
 ---
 
 {% capture overview %}

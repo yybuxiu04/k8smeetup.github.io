@@ -6,6 +6,10 @@ title: Deployment
 redirect_from:
 - "/docs/user-guide/deployments/"
 - "/docs/user-guide/deployments.html"
+cn-approvers:
+- rootsongjc
+cn-reviewers:
+- markthink
 ---
 
 {:toc}

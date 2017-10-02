@@ -7,6 +7,10 @@ title: 配置Pod的Service Account
 redirect_from:
 - "/docs/user-guide/service-accounts/"
 - "/docs/user-guide/service-accounts.html"
+cn-approvers:
+- rootsongjc
+cn-reviewers:
+- rootsongjc
 ---
 
 Service account为Pod中的进程提供身份信息。

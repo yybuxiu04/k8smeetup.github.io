@@ -1,4 +1,6 @@
-To view a specific pod, use the `kubectl get` command:```shell$ kubectl get pod NAME
+To view a specific pod, use the `kubectl get` command:
+```shell
+$ kubectl get pod NAME
 NAME                       READY   STATUS    RESTARTS   AGE
 example-1934187764-scau1   1/1     Running   0          2d
 ```

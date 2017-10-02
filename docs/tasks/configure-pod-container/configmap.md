@@ -6,6 +6,10 @@ title: 使用ConfigMap配置容器
 redirect_from:
 - "/docs/user-guide/configmap/index/"
 - "/docs/user-guide/configmap/index.html"
+cn-approvers:
+- rootsongjc
+cn-reviewers:
+- markthink
 ---
 
 

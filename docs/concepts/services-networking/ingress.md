@@ -5,6 +5,10 @@ title: Ingress resource
 redirect_from:
 - "/docs/user-guide/ingress/"
 - "/docs/user-guide/ingress.html"
+cn-approvers:
+- rootsongjc
+cn-reviewers:
+- markthink
 ---
 
 * TOC

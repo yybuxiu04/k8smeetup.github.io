@@ -1,5 +1,9 @@
 ---
 title: IP 伪装代理用户指南
+cn-approvers:
+- rootsongjc
+cn-reviewers:
+- shirdrn
 ---
 
 {% capture overview %}

@@ -5,6 +5,10 @@ redirect_from:
 - "/docs/user-guide/quick-start.html"
 - "/docs/tutorials/stateless-application/expose-external-ip-address-service/"
 - "/docs/tutorials/stateless-application/expose-external-ip-address-service.html"
+cn-approvers:
+- rootsongjc
+cn-reviewers:
+- rootsongjc
 ---
 
 {% capture overview %}
