@@ -1,6 +1,13 @@
 # K8SMeetup 中文翻译社区每周文章更新汇编
 
 
+### 第 11 周：2017-10-02 ~~ 2017-10-08 - 有效合并 2 篇
+
+[https://k8smeetup.github.io/docs/admin/bootstrap-tokens](https://k8smeetup.github.io/docs/admin/bootstrap-tokens) by [zhangqx2010](https://github.com/zhangqx2010)
+
+[https://k8smeetup.github.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume](https://k8smeetup.github.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume) by [zhangqx2010](https://github.com/zhangqx2010)
+
+
 ### 第 10 周：2017-09-25 ~~ 2017-10-01 - 有效合并 27 篇
 
 [https://k8smeetup.github.io/docs/tutorials/stateful-application/cassandra](https://k8smeetup.github.io/docs/tutorials/stateful-application/cassandra) by [xiaosuiba](https://github.com/xiaosuiba)

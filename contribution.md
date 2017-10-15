@@ -3,6 +3,13 @@
 本文档只包含新增更新，[更新参考](contribution-update.md)。
 
 
+### 第 11 周：2017-10-02 ~~ 2017-10-08 - 有效合并 2 篇
+
+[https://k8smeetup.github.io/docs/user-guide/kubectl/v1.5/index](https://k8smeetup.github.io/docs/user-guide/kubectl/v1.5/index) by [leonshi1988](https://github.com/leonshi1988)
+
+[https://k8smeetup.github.io/docs/tasks/configure-pod-container/quality-service-pod](https://k8smeetup.github.io/docs/tasks/configure-pod-container/quality-service-pod) by [NickSu86](https://github.com/NickSu86)
+
+
 ### 第 10 周：2017-09-25 ~~ 2017-10-01 - 有效合并 30 篇
 
 [https://k8smeetup.github.io/docs/tools/kompose/index](https://k8smeetup.github.io/docs/tools/kompose/index) by [GavinBF](https://github.com/GavinBF)
