@@ -38,13 +38,14 @@ In order for `kubectl run` to satisfy infrastructure as code:
 * Deployment, using `extensions/v1beta1` endpoint - use `deployment/v1beta1` (default).
 * Deployment, using `apps/v1beta1` endpoint - use `deployment/apps.v1beta1` (recommended).
 * Job - use `job/v1`.
-* CronJob - use `cronjob/v2alpha1`.
+* CronJob - using `batch/v1beta1` endpoint - use `cronjob/v1beta1`(default).
+* CronJob - using `batch/v2alpha1` endpoint - use `cronjob/v2alpha1` (deprecated).
 
 Additionally, if you didn't specify a generator flag, other flags will suggest using
 a specific generator.  Below table shows which flags force using specific generators,
 depending on your cluster version:
 
-|   Generated Resource   | Cluster v1.4 and later | Cluster v1.3          | Cluster v1.2                               | Cluster v1.1 and eariler                   |
+|   Generated Resource   | Cluster v1.4 and later | Cluster v1.3          | Cluster v1.2                               | Cluster v1.1 and earlier                   |
 |:----------------------:|------------------------|-----------------------|--------------------------------------------|--------------------------------------------|
 | Pod                    | `--restart=Never`      | `--restart=Never`     | `--generator=run-pod/v1`                   | `--restart=OnFailure` OR `--restart=Never` |
 | Replication Controller | `--generator=run/v1`   | `--generator=run/v1`  | `--generator=run/v1`                       | `--restart=Always`                         |

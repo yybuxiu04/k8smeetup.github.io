@@ -6,11 +6,12 @@ approvers:
 ---
 
 {% capture overview %}
-This page shows how to migrate data stored in a ThirdPartyResource (TPR) to a CustomResourceDefinition (CRD).
+This page shows how to migrate data stored in a ThirdPartyResource (TPR) to a
+[CustomResourceDefinition](/docs/api-reference/{{page.version}}/#customresourcedefinition-v1beta1-apiextensions) (CRD).
 
 Kubernetes does not automatically migrate existing TPRs.
 This is due to API changes introduced as part of
-[graduating to beta](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/thirdpartyresources.md)
+[graduating to beta](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/api-machinery/thirdpartyresources.md)
 under a new name and API group.
 Instead, both TPR and CRD are available and operate independently in Kubernetes 1.7.
 Users must migrate each TPR one by one to preserve their data before upgrading to Kubernetes 1.8.
@@ -22,6 +23,8 @@ you **on a best-effort basis**.
 {% endcapture %}
 
 {% capture prerequisites %}
+{% include task-tutorial-prereqs.md %}
+
 * Make sure your Kubernetes cluster has a **master version of exactly 1.7.x** (any patch release),
   as this is the only version that supports both TPR and CRD.
 * If you use a TPR-based custom controller, check with the author of the controller first.
@@ -160,6 +163,7 @@ you **on a best-effort basis**.
 {% capture whatsnext %}
 * Learn more about [custom resources](/docs/concepts/api-extension/custom-resources/).
 * Learn more about [using CustomResourceDefinitions](/docs/tasks/access-kubernetes-api/extend-api-custom-resource-definitions/).
+* See [CustomResourceDefinition](/docs/api-reference/{{page.version}}/#customresourcedefinition-v1beta1-apiextensions).
 {% endcapture %}
 
 {% include templates/task.md %}

@@ -1,10 +1,12 @@
 ---
 approvers:
 - pipejakob
+cn-approvers:
+- xiaosuiba
+cn-reviewers:
+- shirdrn
 title: 将 kubeadm 集群从 1.6 升级到 1.7
 ---
-
-
 
 {% capture overview %}
 
@@ -42,6 +44,8 @@ title: 将 kubeadm 集群从 1.6 升级到 1.7
 
 
 2. 重启 kubelet。
+
+       systemctl restart kubelet
 
 
 3. 删除 `kube-proxy` DaemonSet。
@@ -84,7 +88,9 @@ title: 将 kubeadm 集群从 1.6 升级到 1.7
        sudo yum update
 
 
-2. 重启  kubelet。
+2. 重启 kubelet。
+
+       systemctl restart kubelet
 
 {% endcapture %}
 

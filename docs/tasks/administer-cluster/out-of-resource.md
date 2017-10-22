@@ -3,9 +3,12 @@ approvers:
 - derekwaynecarr
 - vishh
 - timstclair
+cn-approvers:
+- xiaosuiba
+cn-reviewers:
+- markthink
 title: 配置资源不足处理方式
 ---
-
 
 * TOC
 {:toc}
@@ -103,7 +106,7 @@ title: 配置资源不足处理方式
 硬移除门限没有宽限期，一旦察觉，`kubelet` 将立即采取行动回收关联的短缺资源。如果满足硬移除门限，`kubelet` 将立即结束 pod 而不是优雅终止。
 
 
-  硬移除门限的配置支持下列标记：
+硬移除门限的配置支持下列标记：
 
 * `eviction-hard` 描述了移除门限的集合（例如 `memory.available<1Gi`），如果满足条件将触发 pod 移除。
 
@@ -116,7 +119,9 @@ title: 配置资源不足处理方式
 ### 移除监控时间间隔
 
 
-  `kubelet` 根据其配置的整理时间间隔计算移除门限。
+`kubelet` 根据其配置的整理时间间隔计算移除门限。
+
+* `housekeeping-interval` 是容器管理时间间隔。
 
 
 ### 节点状态
@@ -169,7 +174,7 @@ title: 配置资源不足处理方式
 如果 `nodefs` 满足移除门限，`kubelet` 将以下面的顺序释放磁盘空间：
 
 
-2. 删除停止运行的 pod/container
+1. 删除停止运行的 pod/container
 
 
 如果 `imagefs` 满足移除门限，`kubelet` 将以下面的顺序释放磁盘空间：
@@ -181,7 +186,7 @@ title: 配置资源不足处理方式
 #### 未使用 Imagefs
 
 
-  如果 `nodefs` 满足移除门限，`kubelet` 将以下面的顺序释放磁盘空间：
+如果 `nodefs` 满足移除门限，`kubelet` 将以下面的顺序释放磁盘空间：
 
 1. 删除停止运行的 pod/container
 2. 删除全部没有使用的镜像
@@ -193,13 +198,13 @@ title: 配置资源不足处理方式
 如果 `kubelet` 在节点上无法回收足够的资源，它将开始移除 pod。
 
 
-  `kubelet` 按如下项目对要移除的 pod 排名：
+`kubelet` 按如下项目对要移除的 pod 排名：
 
-* 按其 service 质量
-* 按和 pod 调度请求关联的短缺计算资源消耗情况
+* 按其 service 质量。
+* 按和 pod 调度请求关联的短缺计算资源消耗情况。
 
 
-  因此，pod 的移除按以下顺序发生：
+因此，pod 的移除按以下顺序发生：
 
 * 消耗最多短缺资源的 `BestEffort` pod 首先被终止。
 * 消耗最多与其请求资源关联的短缺资源的 `Burstable` pod 将被优先终止。如果没有 pod 超出它们的请求量，移除策略将以短缺资源最大的消耗者作为目标。
@@ -359,10 +364,10 @@ title: 配置资源不足处理方式
 ### kubelet 可能会移除超过需求数量的 pod
 
 
-由于状态收集的时间差，pod 移除机制可能会移除超过需求数量的 pod。将来可以通过添加在需求基础上获取根容器状态的能力来[缓解](https://github.com/google/cadvisor/issues/1247)。
+由于状态采集的时间差，移除操作可能移除比所需的更多的 pod。将来可通过添加从根容器获取所需状态的能力 [(https://github.com/google/cadvisor/issues/1247)](https://github.com/google/cadvisor/issues/1247) 来减缓这种状况。
 
 
 ### Kubelet 响应 inode 耗尽时如何对待移除 pod 排名
 
 
-目前，要知道某个特定的容器消耗了多少 inode 是一件不可能的事情。如果 `kubelet` 发现 inode 耗尽，它将按照 pod 的 service 质量排名删除它们。下面这个在 cadvisor 项目中开放的问题是关于如何追踪每个容器的 inode 使用量 (https://github.com/google/cadvisor/issues/1422)，以允许我们按 pod 的 inode 使用量对其排名。例如，这可以让我们识别一个创建了大量 0 比特文件的容器并删除它。
+目前，要知道某个特定的容器消耗了多少 inode 是一件不可能的事情。如果 `kubelet` 发现 inode 耗尽，它将按照 pod 的 service 质量排名删除它们。下面这个在 cadvisor 项目中开放的问题是关于如何追踪每个容器的 inode 使用量 [(https://github.com/google/cadvisor/issues/1422)](https://github.com/google/cadvisor/issues/1422)，以允许我们按 pod 的 inode 使用量对其排名。例如，这可以让我们识别一个创建了大量 0 比特文件的容器并删除它。

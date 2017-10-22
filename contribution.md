@@ -3,6 +3,15 @@
 本文档只包含新增更新，[更新参考](contribution-update.md)。
 
 
+### 第 12 周：2017-10-09 ~~ 2017-10-15 - 有效合并 3 篇
+
+[https://k8smeetup.github.io/docs/getting-started-guides/binary_release](https://k8smeetup.github.io/docs/getting-started-guides/binary_release) by [chentao1596](https://github.com/chentao1596)
+
+[https://k8smeetup.github.io/docs/tasks/index](https://k8smeetup.github.io/docs/tasks/index) by [Tony-CCIE](https://github.com/Tony-CCIE)
+
+[https://k8smeetup.github.io/docs/user-guide/simple-yaml](https://k8smeetup.github.io/docs/user-guide/simple-yaml) by [Tony-CCIE](https://github.com/Tony-CCIE)
+
+
 ### 第 11 周：2017-10-02 ~~ 2017-10-08 - 有效合并 2 篇
 
 [https://k8smeetup.github.io/docs/user-guide/kubectl/v1.5/index](https://k8smeetup.github.io/docs/user-guide/kubectl/v1.5/index) by [leonshi1988](https://github.com/leonshi1988)

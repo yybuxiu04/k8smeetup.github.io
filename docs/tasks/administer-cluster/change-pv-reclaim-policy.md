@@ -1,7 +1,10 @@
 ---
+cn-approvers:
+- xiaosuiba
+cn-reviewers:
+- brucehex
 title: 更改 PersistentVolume 的回收策略
 ---
-
 
 {% capture overview %}
 

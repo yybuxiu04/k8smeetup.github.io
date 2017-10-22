@@ -17,7 +17,7 @@ This guide explains how to set up cluster federation that lets us control multip
 ## Prerequisites
 
 This guide assumes that you have a running Kubernetes cluster.
-If you need to start a new cluster, see the [getting started guides](/docs/getting-started-guides/) for instructions on bringing a cluster up.
+If you need to start a new cluster, see the [getting started guides](/docs/setup/) for instructions on bringing a cluster up.
 
 To use the commands in this guide, you must download a Kubernetes release from the 
 [getting started binary releases](/docs/getting-started-guides/binary_release/) and 
@@ -134,7 +134,7 @@ existing Kubernetes cluster. It also starts a
 [`type: LoadBalancer`](/docs/concepts/services-networking/service/#type-loadbalancer)
 [`Service`](/docs/concepts/services-networking/service/) for the
 `federation-apiserver` and a
-[`PVC`](/docs/concepts/storage/persistent-volumes/) backed
+[`PVC`](/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims/) backed
 by a dynamically provisioned
 [`PV`](/docs/concepts/storage/persistent-volumes/) for
  `etcd`. All these components are created in the `federation` namespace.
@@ -385,4 +385,4 @@ if required.
 
 ## For more information
 
- * [Federation proposal](https://git.k8s.io/community/contributors/design-proposals/federation.md) details use cases that motivated this work.
+ * [Federation proposal](https://git.k8s.io/community/contributors/design-proposals/federation/federation.md) details use cases that motivated this work.
