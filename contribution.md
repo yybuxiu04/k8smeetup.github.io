@@ -3,6 +3,19 @@
 本文档只包含新增更新，[更新参考](contribution-update.md)。
 
 
+### 第 13 周：2017-10-16 ~~ 2017-10-22 - 有效合并 5 篇
+
+[https://k8smeetup.github.io/docs/tasks/tools/install-kubectl](https://k8smeetup.github.io/docs/tasks/tools/install-kubectl) by [xingzhou](https://github.com/xingzhou)
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/running-cloud-controller](https://k8smeetup.github.io/docs/tasks/administer-cluster/running-cloud-controller) by [xiaosuiba](https://github.com/xiaosuiba)
+
+[https://k8smeetup.github.io/docs/tasks/access-application-cluster/create-external-load-balancer](https://k8smeetup.github.io/docs/tasks/access-application-cluster/create-external-load-balancer) by [zhangqx2010](https://github.com/zhangqx2010)
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/limit-storage-consumption](https://k8smeetup.github.io/docs/tasks/administer-cluster/limit-storage-consumption) by [xiaosuiba](https://github.com/xiaosuiba)
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/memory-constraint-namespace](https://k8smeetup.github.io/docs/tasks/administer-cluster/memory-constraint-namespace) by [xiaosuiba](https://github.com/xiaosuiba)
+
+
 ### 第 12 周：2017-10-09 ~~ 2017-10-15 - 有效合并 3 篇
 
 [https://k8smeetup.github.io/docs/getting-started-guides/binary_release](https://k8smeetup.github.io/docs/getting-started-guides/binary_release) by [chentao1596](https://github.com/chentao1596)
