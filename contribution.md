@@ -3,6 +3,25 @@
 本文档只包含新增更新，[更新参考](contribution-update.md)。
 
 
+### 第 14 周：2017-10-23 ~~ 2017-10-29 - 有效合并 8 篇
+
+[https://k8smeetup.github.io/docs/getting-started-guides/scratch](https://k8smeetup.github.io/docs/getting-started-guides/scratch) by [bjdzliu](https://github.com/bjdzliu)
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/cpu-constraint-namespace](https://k8smeetup.github.io/docs/tasks/administer-cluster/cpu-constraint-namespace) by [xiaosuiba](https://github.com/xiaosuiba)
+
+[https://k8smeetup.github.io/docs/tasks/debug-application-cluster/events-stackdriver](https://k8smeetup.github.io/docs/tasks/debug-application-cluster/events-stackdriver) by [jl2005](https://github.com/jl2005)
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/opaque-integer-resource-node](https://k8smeetup.github.io/docs/tasks/administer-cluster/opaque-integer-resource-node) by [xiaosuiba](https://github.com/xiaosuiba)
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/developing-cloud-controller-manager](https://k8smeetup.github.io/docs/tasks/administer-cluster/developing-cloud-controller-manager) by [xiaosuiba](https://github.com/xiaosuiba)
+
+[https://k8smeetup.github.io/docs/concepts/configuration/pod-priority-preemption](https://k8smeetup.github.io/docs/concepts/configuration/pod-priority-preemption) by [chentao1596](https://github.com/chentao1596)
+
+[https://k8smeetup.github.io/docs/tasks/federation/set-up-cluster-federation-kubefed](https://k8smeetup.github.io/docs/tasks/federation/set-up-cluster-federation-kubefed) by [NickSu86](https://github.com/NickSu86)
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/kubeadm-upgrade-1-8](https://k8smeetup.github.io/docs/tasks/administer-cluster/kubeadm-upgrade-1-8) by [xiaosuiba](https://github.com/xiaosuiba)
+
+
 ### 第 13 周：2017-10-16 ~~ 2017-10-22 - 有效合并 5 篇
 
 [https://k8smeetup.github.io/docs/tasks/tools/install-kubectl](https://k8smeetup.github.io/docs/tasks/tools/install-kubectl) by [xingzhou](https://github.com/xingzhou)
