@@ -2,7 +2,6 @@
 assignees:
 - mikedanese
 - thockin
-
 title: 使用 kubeconfig 进行跨集群认证
 redirect_from:
 - "/docs/user-guide/kubeconfig-file/"
@@ -14,6 +13,8 @@ cn-approvers:
 cn-reviewers:
 - shidrdn
 ---
+
+
 
 
 

@@ -7,9 +7,10 @@ approvers:
 - janetkuo
 - kow3ns
 - smarterclayton
-
 title: 调试 Init 容器
 ---
+
+
 
 {% capture overview %}
 
@@ -148,4 +149,3 @@ kubectl logs <pod-name> -c <init-container-2>
 {% endcapture %}
 
 {% include templates/task.md %}
-

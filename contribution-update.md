@@ -1,6 +1,21 @@
 # K8SMeetup 中文翻译社区每周文章更新汇编
 
 
+### 第 15 周：2017-10-30 ~~ 2017-11-05 - 有效合并 6 篇
+
+[https://k8smeetup.github.io/docs/concepts/cluster-administration/device-plugins](https://k8smeetup.github.io/docs/concepts/cluster-administration/device-plugins) by [pigletfly](https://github.com/pigletfly)
+
+[https://k8smeetup.github.io/docs/concepts/cluster-administration/logging](https://k8smeetup.github.io/docs/concepts/cluster-administration/logging) by [pigletfly](https://github.com/pigletfly)
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/kubelet-config-file](https://k8smeetup.github.io/docs/tasks/administer-cluster/kubelet-config-file) by [pigletfly](https://github.com/pigletfly)
+
+[https://k8smeetup.github.io/docs/concepts/configuration/organize-cluster-access-kubeconfig](https://k8smeetup.github.io/docs/concepts/configuration/organize-cluster-access-kubeconfig) by [chentao1596](https://github.com/chentao1596)
+
+[https://k8smeetup.github.io/docs/concepts/cluster-administration/logging](https://k8smeetup.github.io/docs/concepts/cluster-administration/logging) by [bjdzliu](https://github.com/bjdzliu)
+
+[https://k8smeetup.github.io/docs/user-guide/kubectl-cheatsheet](https://k8smeetup.github.io/docs/user-guide/kubectl-cheatsheet) by [rootsongjc](https://github.com/rootsongjc)
+
+
 ### 第 13 周：2017-10-16 ~~ 2017-10-22 - 有效合并 4 篇
 
 [https://k8smeetup.github.io/docs/tasks/administer-cluster/access-cluster-services](https://k8smeetup.github.io/docs/tasks/administer-cluster/access-cluster-services) by [xiaosuiba](https://github.com/xiaosuiba)

@@ -8,8 +8,9 @@ cn-approvers:
 cn-reviewers:
 - zhangqx2010
 title: Kubernetes 云管理控制器
-
 ---
+
+
 
 
 **云管理控制器（Cloud Controller Manager）是 1.8 版本中的一个 alpha 特性。在以后的版本中，它将成为 Kubernetes 与任何云服务进行集成的首选方式。这将保证云服务提供商（cloud provider）能够在 Kubernetes 核心发布周期外独立开发他们的特性。**

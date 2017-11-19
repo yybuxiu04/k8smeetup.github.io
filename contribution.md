@@ -3,6 +3,19 @@
 本文档只包含新增更新，[更新参考](contribution-update.md)。
 
 
+### 第 15 周：2017-10-30 ~~ 2017-11-05 - 有效合并 5 篇
+
+[https://k8smeetup.github.io/docs/concepts/cluster-administration/device-plugins](https://k8smeetup.github.io/docs/concepts/cluster-administration/device-plugins) by [tianshapjq](https://github.com/tianshapjq)
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/kubelet-config-file](https://k8smeetup.github.io/docs/tasks/administer-cluster/kubelet-config-file) by [xiaosuiba](https://github.com/xiaosuiba)
+
+[https://k8smeetup.github.io/docs/user-guide/pods/_viewing-a-pod](https://k8smeetup.github.io/docs/user-guide/pods/_viewing-a-pod) by [pigletfly](https://github.com/pigletfly)
+
+[https://k8smeetup.github.io/docs/user-guide/kubectl-cheatsheet](https://k8smeetup.github.io/docs/user-guide/kubectl-cheatsheet) by [pigletfly](https://github.com/pigletfly)
+
+[https://k8smeetup.github.io/docs/concepts/configuration/organize-cluster-access-kubeconfig](https://k8smeetup.github.io/docs/concepts/configuration/organize-cluster-access-kubeconfig) by [pigletfly](https://github.com/pigletfly)
+
+
 ### 第 14 周：2017-10-23 ~~ 2017-10-29 - 有效合并 8 篇
 
 [https://k8smeetup.github.io/docs/getting-started-guides/scratch](https://k8smeetup.github.io/docs/getting-started-guides/scratch) by [bjdzliu](https://github.com/bjdzliu)
